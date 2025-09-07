@@ -8,6 +8,35 @@
 */
 
 
+:root {
+    
+    /* ----- Colores principales ----- */
+    --color-primary: #036AAD;
+    --color-secondary: #8B5CF6; /* violeta */
+    --color-accent: #3B82F6;    /* azul */
+    --color-light: #F7E7C0;
+    --color-border: #e5e7eb;
+
+    /* ----- Fondos lisos ----- */
+    --bg-light: #F7E7C0;
+    --bg-dark: #1E293B; /* slate-800 por ejemplo */
+
+    /* ----- Fondos con patrones ----- */
+    --bg-grid-light: 
+        linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+
+    --bg-grid-pattern: 
+        linear-gradient(to right, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
+        radial-gradient(circle 500px at 20% 100%, rgba(139, 92, 246, 0.3), transparent),
+        radial-gradient(circle 500px at 100% 80%, rgba(59, 130, 246, 0.3), transparent);
+}
+
+
+
+
+
 .header__container {
     min-width: 100%;
     display: flex;
@@ -27,18 +56,13 @@
     padding: 2rem;
 
     /*  -----  background  -----  */
-    background-image:
-        linear-gradient(to right, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
-        radial-gradient(circle 500px at 20% 100%, rgba(139, 92, 246, 0.3), transparent),
-        radial-gradient(circle 500px at 100% 80%, rgba(59, 130, 246, 0.3), transparent);
+    background-image: var(--bg-grid-pattern);
     background-size:
         48px 48px,
         48px 48px,
         100% 100%,
         100% 100%;
     background-repeat: repeat;
-
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -229,12 +253,9 @@
     padding: 2rem;
     margin-bottom: 2rem;
     border-radius: 30px;
-    background-color: #F7E7C0;
-    background-image:
-        linear-gradient(to right, #e5e7eb 1px, transparent 1px),
-        linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+    background-color: var(--bg-light);
+    background-image: var(--bg-grid-light);
     background-size: 40px 40px;
-
     box-shadow: 10px 10px 10px rgb(209, 220, 235);
 }
 

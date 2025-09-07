@@ -8,30 +8,20 @@
 */
 
 
-:root {
+
+.dark {
     
-    /* ----- Colores principales ----- */
-    --color-primary: #036AAD;
-    --color-secondary: #8B5CF6; /* violeta */
-    --color-accent: #3B82F6;    /* azul */
-    --color-light: #F7E7C0;
-    --color-border: #e5e7eb;
-
-    /* ----- Fondos lisos ----- */
-    --bg-light: #F7E7C0;
-    --bg-dark: #1E293B; /* slate-800 por ejemplo */
-
-    /* ----- Fondos con patrones ----- */
-    --bg-grid-light: 
-        linear-gradient(to right, var(--color-border) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
-
+     background-color: var(--bg-dark);
     --bg-grid-pattern: 
         linear-gradient(to right, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
-        radial-gradient(circle 500px at 20% 100%, rgba(139, 92, 246, 0.3), transparent),
-        radial-gradient(circle 500px at 100% 80%, rgba(59, 130, 246, 0.3), transparent);
+        radial-gradient(circle 500px at 20% 100%, rgba(23, 19, 31, 0.3), transparent),
+        radial-gradient(circle 500px at 100% 80%, rgba(11, 11, 12, 0.3), transparent);
+
+   
 }
+
+
 
 
 .header__container {
@@ -53,13 +43,11 @@
     padding: 2rem;
 
     /*  -----  background  -----  */
+    background-color: var(--bg-white);
     background-image: var(--bg-grid-pattern);
-    background-size:
-        48px 48px,
-        48px 48px,
-        100% 100%,
-        100% 100%;
-    background-repeat: repeat;
+    background-size: var(--bg-grid-size);
+    background-repeat: var(--bg-grid-repeat);
+    
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -273,7 +261,7 @@
     flex-direction: column;
     align-items: center;
     font-size: 1.8rem;
-    color: #036AAD;
+    color: var(--color-primary);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
