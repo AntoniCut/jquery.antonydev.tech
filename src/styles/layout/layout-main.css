@@ -1,0 +1,171 @@
+/*
+    -----------------------------------------------
+    ----------  /jquery.antonydev.tech/  ----------
+    ----------  /src/styles/  ---------------------
+    ----------  /layout/  -------------------------
+    ----------  /layout-main.css  -----------------
+    -----------------------------------------------
+*/
+
+.main__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+@media(min-width: 768px) {
+    
+    .main__container {
+        margin-top: 15rem;
+    }   
+    
+}
+
+.layout__main {
+    /* flex: 1; */
+    width: 100vw;
+    overflow-x: hidden;
+    display: grid;
+    place-items: center;
+}
+
+.main__title {
+    width: 90%;
+    max-width: 120rem;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    font-size: 2.6rem;
+    color: rgb(209, 220, 235);
+    background-color: #F7E7C0;
+    text-align: center;
+    border-radius: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.main__title--first {
+    margin-top: 0rem;
+}
+
+.main__section {
+    width: 100%;
+    max-width: 120rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem 2rem;
+    padding-bottom: 5rem;
+    border-radius: 0.5rem;
+
+    /* background-color: #F4F4FE; */
+    background: radial-gradient(circle, rgb(255, 255, 255), rgb(219, 228, 240), rgb(176, 196, 236));
+    box-shadow: 10px 10px 10px rgb(209, 220, 235);
+}
+
+@media(min-width: 480px) {
+    
+    .main__section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+        padding: 2rem;
+        /* place-items: center; */
+    }
+
+    .main__section--escuela-it,
+    .main__section--books,
+    .main__section--manuales {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main__section--escuela-it .section__card,
+    .main__section--books .section__card,
+    .main__section--manuales .section__card {
+        width: 40rem;
+    }
+
+}
+
+
+@media(min-width: 768px) {
+    
+    .main__section {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 5rem;
+        padding: 5rem;
+    }
+}
+
+@media(min-width: 1024px) {
+    
+    .main__section {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+.section__card {
+    width: 100%;
+    padding: 3rem 2rem;
+    background-color: #E8DFFD;
+    /* overflow: hidden; */
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+/*
+@media(min-width: 480px) {
+    
+    .section__card {
+        height: 30rem;
+    }
+}
+
+
+@media(min-width: 768px) {
+    
+    .section__card {
+        height: 30rem;
+    }
+}
+*/
+
+.card__img {
+    width: 100%;
+    /* height: 100%; */
+    aspect-ratio: 16/12;
+    border-radius: 5px;
+    &:hover {
+        transform: scale(1.02);
+        transition: all 300ms ease-in-out;
+    }
+}
+
+
+
+
+
+.main__background {
+    background: radial-gradient(circle, rgb(255, 255, 255), rgb(219, 228, 240), rgb(176, 196, 236));
+    box-shadow: 50px 50px 100px rgb(209, 220, 235);
+}
+
+.gradiente {
+    /* background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%); */
+    /* background: radial-gradient(125% 125% at 50% 10%, #00000f 40%, #fff 100%); */
+    /* background-color: #ffffff; */
+    background: radial-gradient(circle at top right, rgba(70, 130, 180, 0.5), transparent 70%);
+    background-repeat: no-repeat;
+    /* filter: blur(80px); */
+    /* z-index: -1; */
+
+}

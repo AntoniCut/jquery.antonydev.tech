@@ -1,0 +1,296 @@
+/*
+    -----------------------------------------------
+    ----------  /jquery.antonydev.tech/  ----------
+    ----------  /src/styles/  ---------------------
+    ----------  /layout/  -------------------------
+    ----------  /layout-header.css  ---------------
+    -----------------------------------------------
+*/
+
+
+.header__container {
+    min-width: 100%;
+    display: flex;
+}
+
+
+/*
+    ---------------------------
+    -----  Layout Header  -----
+    ---------------------------
+*/
+
+.layout__header {
+    width: 100vw;
+    position: relative;
+    z-index: 100;
+    padding: 2rem;
+
+    /*  -----  background  -----  */
+    background-image:
+        linear-gradient(to right, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
+        radial-gradient(circle 500px at 20% 100%, rgba(139, 92, 246, 0.3), transparent),
+        radial-gradient(circle 500px at 100% 80%, rgba(59, 130, 246, 0.3), transparent);
+    background-size:
+        48px 48px,
+        48px 48px,
+        100% 100%,
+        100% 100%;
+    background-repeat: repeat;
+
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+@media (min-width: 1200px) {
+
+    .layout__header {
+        display: grid;
+        grid-template-columns: 30rem auto 30rem;
+        column-gap: 1rem;
+        padding: 5rem;
+    }
+
+}
+
+
+/* 
+    -----------------------------------------------------------------
+    -----  Contenedor de los Logos y Banners de jQuery y Cursos -----
+    -----------------------------------------------------------------  
+*/
+
+.header__container-logos-banners {
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+
+    .header__container-logos-banners {
+        display: grid;
+        grid-template-columns: 35rem auto;
+        row-gap: 2rem;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    .header__container-logos-banners {
+        display: grid;
+        grid-template-columns: none;
+
+    }
+
+}
+
+
+/*
+    --------------------------------------------------------------------
+    -----  Contenedor de los Logos y Banners de jQuery y jQuery UI -----
+    --------------------------------------------------------------------
+*/
+
+.container-logos-banners__jquery,
+.container-logos-banners__jquery-ui {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.jquery__logo-banner,
+.jquery-ui__logo-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.jquery-banner,
+.jquery-ui-banner {
+    width: 12rem;
+    height: auto;
+    mix-blend-mode: multiply;
+    transition: all 300ms ease-in-out;
+}
+
+.jquery-logo,
+.jquery-ui-logo {
+    width: 3rem;
+    height: 3rem;
+    transition: all 300ms ease-in-out;
+}
+
+.jquery-banner:hover,
+.jquery-ui-banner:hover,
+.jquery-logo:hover,
+.jquery-ui-logo:hover {
+    transform: scale(1.1);
+}
+
+
+/* .jquery-banner:hover,
+.jquery-ui-banner:hover,
+.jquery-banner:active,
+.jquery-ui-banner:active,
+.jquery-banner:focus,
+.jquery-ui-banner:focus,
+.jquery-logo:hover,
+.jquery-ui-logo:hover,
+.jquery-logo:active,
+.jquery-ui-logo:active,
+.jquery-logo:focus,
+.jquery-ui-logo:focus {
+    transform: scale(1.1);
+} */
+
+@media (min-width: 768px) {
+
+    .jquery-banner,
+    .jquery-ui-banner {
+        width: 15rem;
+    }
+
+    .jquery-logo,
+    .jquery-ui-logo {
+        width: 4rem;
+        height: 4rem;
+    }
+
+}
+
+
+/*
+    --------------------------------------------------------
+    -----  Contenedor de los Logos y Banners de jQuery -----
+    --------------------------------------------------------
+*/
+
+.container-logos-banners__cursos {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.cursos__logos {
+    width: 7rem;
+    height: 7rem;
+    background-color: aqua;
+    mix-blend-mode: multiply;
+    transition: all 300ms ease-in-out;
+}
+
+.cursos__logos:hover {
+    transform: scale(1.1);
+}
+
+.cursos__logos--udemy {
+    width: 9rem;
+    height: auto;
+}
+
+.cursos__logos--youtube {
+    width: 9rem;
+    height: auto;
+}
+
+.cursos__logos--desarrollowebcom {
+    width: 9rem;
+    height: 5rem;
+    mix-blend-mode: multiply;
+}
+
+.cursos__logos--escuela-it {
+    width: 10rem;
+    height: auto;
+}
+
+.cursos__logos--jquery-books {
+    width: 10rem;
+    height: auto;
+}
+
+.cursos__logos--jquery-manuales {
+    width: 8rem;
+    height: auto;
+}
+
+/*
+    ----------------------------------------------
+    -----  Contenedor del Título del Header  -----
+    ----------------------------------------------
+*/
+
+.header__container-title {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 30px;
+    background-color: #F7E7C0;
+    background-image:
+        linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+        linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+    background-size: 40px 40px;
+
+    box-shadow: 10px 10px 10px rgb(209, 220, 235);
+}
+
+@media (min-width: 1200px) {
+
+    .header__container-title {
+        padding: 3rem;
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+
+}
+
+
+/*  -----  Título del Header  -----  */
+.header__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #036AAD;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.header__title p {
+    font-size: 1.6rem;
+}
+
+@media (min-width: 768px) {
+
+    .header__title {
+        font-size: 2.8rem;
+    }
+
+    .header__title p {
+        font-size: 2rem;
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    .header__title {
+        font-size: 3.6rem;
+    }
+
+    .header__title p {
+        font-size: 2.4rem;
+    }
+
+}

@@ -1,0 +1,21 @@
+# Proyectos y cursos
+01-udemy/
+02-youtube/
+03-desarrolloweb.com/
+04-escuela.it/
+05-books/
+06-manuales/
+curso-jquery-escuela.it/
+libros/
+
+# Node y dependencias
+node_modules/
+pnpm-lock.yaml
+
+# Carpeta de distribución / compilados
+dist/
+
+# Sistema y editor (opcional, recomendable)
+.DS_Store
+Thumbs.db
+.vscode/

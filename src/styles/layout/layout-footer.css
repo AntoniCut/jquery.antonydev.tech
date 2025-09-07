@@ -1,0 +1,254 @@
+/*
+    -----------------------------------------------
+    ----------  /jquery.antonydev.tech/  ----------
+    ----------  /src/styles/  ---------------------
+    ----------  /layout/  -------------------------
+    ----------  /layout-footer.css  ---------------
+    -----------------------------------------------
+*/
+
+
+.footer__container {
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/*
+    ---------------------------
+    -----  Layout Footer  -----
+    ---------------------------
+*/
+
+.layout__footer {
+    width: 100vw;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+
+    /*  -----  background  -----  */
+    background-color: #020617;
+    background-image:
+        linear-gradient(to right, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
+        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+    background-size:
+        32px 32px,
+        32px 32px,
+        100% 100%;
+    background-repeat: repeat;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/*
+    ---------------------------
+    -----  Footer Header  -----
+    ---------------------------
+*/
+
+.footer__header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    position: relative;
+    z-index: 100;
+    padding: 2rem;
+
+    /*  -----  background  -----  */
+    background-color: white;
+    background-image:
+        linear-gradient(to right, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
+        radial-gradient(circle 500px at 20% 100%, rgba(139, 92, 246, 0.3), transparent),
+        radial-gradient(circle 500px at 100% 80%, rgba(59, 130, 246, 0.3), transparent);
+    background-size:
+        48px 48px,
+        48px 48px,
+        100% 100%,
+        100% 100%;
+    background-repeat: repeat;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+@media (min-width: 1200px) {
+
+    .footer__header {
+        display: grid;
+        grid-template-columns: 30rem auto 30rem;
+        column-gap: 1rem;
+    }
+
+}
+
+
+
+/*  
+    ----------------------------------------------------------------
+    -----  Contenedor del logo y banner de jQuery y jQuery UI  -----
+    ----------------------------------------------------------------  
+*/
+
+.footer__container-logos {
+    width: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+
+/*  -----  Logos y banners  -----  */
+
+.footer__jquery-logo,
+.footer__jquery-ui-logo {
+    width: 3rem;
+    height: 3rem;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.footer__jquery-banner,
+.footer__jquery-ui-banner {
+    width: 12rem;
+    height: auto;
+    mix-blend-mode: multiply;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+
+
+/*  -----  Contenedor del Título  -----  */
+.footer__container-title {
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 30px;
+    background-color: #F7E7C0;
+    background-image:
+        linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+        linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
+    ;
+    background-size: 40px 40px; 
+
+    box-shadow: 10px 10px 10px rgb(209, 220, 235);
+}
+
+/*  -----  Título  -----  */
+.footer__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #036AAD;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.footer__title p {
+    font-size: 1.6rem;
+}
+
+.footer__separator {
+    max-width: 102.4rem;
+    width: 100%;
+    height: 0.1rem;
+    background-color: #E6EBF1;
+}
+
+@media (min-width: 768px) {
+ 
+    .footer__title {
+       font-size: 2.8rem;
+    }
+
+    .footer__title p {
+        font-size: 2rem;
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    .footer__title {
+       font-size: 3.6rem;
+    }
+
+    .footer__title p {
+        font-size: 2.4rem;
+    }
+
+}
+
+/*  
+    -------------------------
+    -----  Footer Main  -----
+    -------------------------  
+*/
+
+.footer__main {
+    position: relative;
+    max-width: 102.4rem;
+    width: 100%;
+    padding: 3rem 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    
+}
+
+.footer__list {
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.footer__list-title {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    font-size: 1.6rem;
+    color: #fff;
+    border-bottom: 1px solid white;
+}
+
+.footer__item a {
+    font-size: 1.4rem;
+    margin-left: 2rem;
+    color: #f5e3e3;
+
+    &:hover {
+        margin-left: 4rem;
+        color: #fff;
+        font-weight: bold;
+    }
+}
+
+.footer__list-separator {
+    width: 100%;
+    height: 0.1rem;
+    margin-top: 2rem;
+    background-color: #E6EBF1;
+}

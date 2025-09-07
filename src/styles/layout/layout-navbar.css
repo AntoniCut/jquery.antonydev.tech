@@ -1,0 +1,281 @@
+/*
+    -----------------------------------------------
+    ----------  /jquery.antonydev.tech/  ----------
+    ----------  /src/styles/  ---------------------
+    ----------  /layout/  -------------------------
+    ----------  /layout-navbar.css  ---------------
+    -----------------------------------------------
+*/
+
+
+/*  
+    --------------------------------------------------------
+    -----  Colores base para el background del navbar  -----
+    --------------------------------------------------------  
+*/
+
+:root {
+    --bg: #EAF1FD;
+    /* color de fondo sólido */
+    --grid: #e5e7eb;
+    /* gris de las líneas (Tailwind gray-200) */
+}
+
+
+/*  
+    ------------------------------------------
+    -----  Contenedor del menú (navbar)  -----
+    ------------------------------------------  
+*/
+
+.navbar__container {
+    display: flex;
+    align-self: center;
+    position: absolute;
+    top: 8.5rem;
+    width: 100%;
+    z-index: 10000;
+}
+
+@media (min-width: 768px) {
+
+    .navbar__container {
+        position: relative;
+        margin-top: -10.5rem;
+        width: 50%;
+    }
+}
+
+
+/*  
+    ----------------------------
+    -----  Menú principal  -----  
+    ----------------------------
+*/
+
+.layout__navbar {
+    position: absolute;
+    width: 100%;
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+
+    /*  ----- Background con cuadrícula + círculos  ----- */
+    background-color: var(--bg);
+    background-image:
+        /* cuadrícula vertical/horizontal: línea 1px + resto base sólida */
+        linear-gradient(to right, var(--grid) 1px, var(--bg) 1px),
+        linear-gradient(to bottom, var(--grid) 1px, var(--bg) 1px),
+
+        /* círculo violeta sin transparencia: se funde hacia el color base */
+        radial-gradient(circle 500px at 20% 100%,
+            #d6c6ff 0%, #e9e1ff 60%, var(--bg) 60%, var(--bg) 100%),
+
+        /* círculo azul sin transparencia: se funde hacia el color base */
+        radial-gradient(circle 500px at 100% 80%,
+            #c7daff 0%, #e7f1ff 60%, var(--bg) 60%, var(--bg) 100%);
+    background-size:
+        48px 48px,
+        48px 48px,
+        100% 100%,
+        100% 100%;
+    background-repeat: repeat;
+
+
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/*
+    ------------------------------------------------------
+    -----  Botón Hamburguesa Open del menú (navbar)  -----
+    ------------------------------------------------------   
+*/
+
+.navbar__btn-open {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 4rem;
+    height: 4rem;
+    padding: 0.4rem;
+    background-color: #036AAD;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    /* display: none; */
+
+    &:hover {
+        transition: all 300ms ease-in-out;
+        transform: scale(1.1);
+    }
+}
+
+.btn__icon-open {
+    display: flex;
+    width: 2rem;
+    height: 0.2rem;
+    background-color: white;
+}
+
+
+/*
+    -------------------------------------------------------
+    -----  Botón Hamburguesa Close del menú (navbar)  -----
+    -------------------------------------------------------   
+*/
+
+.navbar__btn-close {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 4rem;
+    height: 4rem;
+    padding: 0.4rem;
+    background-color: #036AAD;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    /* display: none; */
+}
+
+.navbar__btn-close:hover {
+    transition: all 300ms ease-in-out;
+    transform: scale(1.1);
+}
+
+.btn__icon-close {
+    position: absolute;
+    width: 2rem;
+    height: 0.2rem;
+    background-color: white;
+}
+
+.btn__icon-close:first-child {
+    transform: rotate(45deg);
+}
+
+.btn__icon-close:last-child {
+    transform: rotate(-45deg);
+}
+
+
+
+
+
+/*
+    --------------------------------------
+    -----  Título del menú (navbar)  -----
+    --------------------------------------
+*/
+
+.navbar__title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 15px;
+    background-color: #F7E7C0;
+    background-image:
+        linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+        linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+    background-size: 40px 40px;
+
+    box-shadow: 10px 10px 10px rgb(209, 220, 235);
+}
+
+.navbar__title h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #036AAD;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/*
+    ---------------------------------------------
+    -----  Lista e Items del menú (navbar)  -----
+    ---------------------------------------------
+*/
+
+.navbar__list {
+    width: 100%;
+    /* height: 50rem; */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.navbar__item {
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.navbar__item a {
+    position: relative;
+    width: 100%;
+    padding: 0.5rem 2rem;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #7096e5;
+    box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.navbar__item a:hover {
+    margin-left: 2rem;
+    background-color: #3b82f6;
+}
+
+
+/*  -----  background  -----  */
+/* background-image:
+        linear-gradient(to right, rgba(229, 231, 235, 0.8) 1px, #e5e7eb 1px),
+        linear-gradient(to bottom, rgba(229, 231, 235, 0.8) 1px, #e5e7eb 1px),
+        radial-gradient(circle 500px at 20% 100%, rgba(139, 92, 246, 0.3), #8b5cf6),
+        radial-gradient(circle 500px at 100% 80%, rgba(59, 130, 246, 0.3), #3b82f6);
+    background-size:
+    48px 48px,
+    48px 48px,
+    100% 100%,
+    100% 100%;
+    background-repeat: repeat; */
+
+
+
+/*  -----  background  -----  */
+/* background-color: white;
+    background-image:
+        linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+        linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
+    ;
+    background-size: 40px 40px;  */
+
+/* box-shadow: 10px 10px 10px rgb(209, 220, 235); */
+
+/* background: linear-gradient(to right, rgb(189, 220, 230) 20%, rgb(142, 173, 214) 40%, rgb(136, 169, 235) 60%, rgb(197, 201, 221) 80%); */
