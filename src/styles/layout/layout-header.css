@@ -118,34 +118,25 @@
 }
 
 .jquery-logo,
-.jquery-ui-logo {
+.jquery-ui-logo,
+.github-logo {
     width: 3rem;
     height: 3rem;
     transition: all 300ms ease-in-out;
 }
 
+.github-logo {
+    margin-right: 3rem;
+}
+
 .jquery-banner:hover,
 .jquery-ui-banner:hover,
 .jquery-logo:hover,
-.jquery-ui-logo:hover {
+.jquery-ui-logo:hover,
+.github-logo:hover {
     transform: scale(1.1);
 }
 
-
-/* .jquery-banner:hover,
-.jquery-ui-banner:hover,
-.jquery-banner:active,
-.jquery-ui-banner:active,
-.jquery-banner:focus,
-.jquery-ui-banner:focus,
-.jquery-logo:hover,
-.jquery-ui-logo:hover,
-.jquery-logo:active,
-.jquery-ui-logo:active,
-.jquery-logo:focus,
-.jquery-ui-logo:focus {
-    transform: scale(1.1);
-} */
 
 @media (min-width: 768px) {
 
@@ -155,7 +146,8 @@
     }
 
     .jquery-logo,
-    .jquery-ui-logo {
+    .jquery-ui-logo,
+    .github-logo {
         width: 4rem;
         height: 4rem;
     }
