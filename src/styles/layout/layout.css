@@ -20,6 +20,7 @@
     --bg-white: #ffffff;
     --bg-light: #F7E7C0;
     --bg-dark: #1E293B;
+    --bg-dark-footer: #020617;
                 
     /*  -----  Background Cuadricula  -----  */
     --bg-grid-light:
@@ -27,21 +28,34 @@
         linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
 
     /*  -----  Background Gradiente Header  -----  */
-    --bg-grid-pattern:
+    --bg-grid-pattern-header:
         linear-gradient(to right, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
         radial-gradient(circle 500px at 20% 100%, rgba(139, 92, 246, 0.3), transparent),
         radial-gradient(circle 500px at 100% 80%, rgba(59, 130, 246, 0.3), transparent);
 
+         /*  -----  Background Gradiente Footer  -----  */
+    --bg-grid-pattern-footer:
+        linear-gradient(to right, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
+        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+
+
     /*  -----  Background Gradiente Main Section  -----  */
     --bg-main-section: 
         radial-gradient(circle, rgb(255, 255, 255), rgb(219, 228, 240), rgb(176, 196, 236));
    
-    --bg-grid-size: 
+    --bg-grid-size-48x48: 
         48px 48px, 
         48px 48px, 
         100% 100%, 
         100% 100%;
+
+    --bg-grid-size-32x32: 
+        32px 32px, 
+        32px 32px, 
+        100% 100%; 
+        
     
     --bg-grid-repeat: repeat;
 }
@@ -67,7 +81,6 @@ body::-webkit-scrollbar {
 
 
 .layout {
-    /* position: relative; */
     width: 100vw;
     min-height: 100dvh;
     overflow-y: auto;
@@ -111,13 +124,3 @@ button:hover,
 input[type="submit"]:hover {
     background-color: rgb(24, 56, 116);
 }
-
-
-/* 
-
-background-color: rgb(230, 235, 241); 
-background: radial-gradient(circle, rgb(255, 255, 255), rgb(219, 228, 240), rgb(176, 196, 236));
-box-shadow: 0 0 100px 30px rgb(209, 220, 235); 
-
-
-*/

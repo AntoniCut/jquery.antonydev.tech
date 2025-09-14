@@ -30,18 +30,14 @@
     z-index: 10;
 
     /*  -----  background  -----  */
-    background-color: #020617;
-    background-image:
-        linear-gradient(to right, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
-        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
-    background-size:
-        32px 32px,
-        32px 32px,
-        100% 100%;
-    background-repeat: repeat;
+    background-color: var(--bg-dark-footer);
+    background-image: var(--bg-grid-pattern-footer);
+    background-size: var(--bg-grid-size-32x32);
+    background-repeat: var(--bg-grid-repeat);
+
     box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
 }
+
 
 /*
     ---------------------------
@@ -57,21 +53,14 @@
     justify-self: center;
     position: relative;
     z-index: 100;
-    padding: 2rem;
+    padding: 5rem;
 
     /*  -----  background  -----  */
-    background-color: white;
-    background-image:
-        linear-gradient(to right, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
-        radial-gradient(circle 500px at 20% 100%, rgba(139, 92, 246, 0.3), transparent),
-        radial-gradient(circle 500px at 100% 80%, rgba(59, 130, 246, 0.3), transparent);
-    background-size:
-        48px 48px,
-        48px 48px,
-        100% 100%,
-        100% 100%;
-    background-repeat: repeat;
+    background-color: var(--bg-white);
+    background-image: var(--bg-grid-pattern-header);
+    background-size: var(--bg-grid-size-48x48);
+    background-repeat: var(--bg-grid-repeat);
+   
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
