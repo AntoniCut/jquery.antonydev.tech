@@ -25,7 +25,6 @@
 }
 
 .layout__main {
-    /* flex: 1; */
     width: 100vw;
     overflow-x: hidden;
     display: grid;
@@ -42,9 +41,7 @@
     text-align: center;
     color: var(--color-main-title);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-
-    /* background-color: #F7E7C0; */
-    
+        
     background-color: var(--bg-light);
     background-image: var(--bg-grid-light);
     background-size: var(--bg-grid-size);
@@ -61,6 +58,7 @@
 .main__section {
     width: 100%;
     max-width: 120rem;
+    min-height: 30rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,8 +66,7 @@
     padding: 3rem 2rem;
     padding-bottom: 5rem;
     border-radius: 0.5rem;
-
-    /* background-color: #F4F4FE; */
+    
     background: var(--bg-main-section);
     box-shadow: 2px 2px 10px rgb(209, 220, 235);
 }
@@ -81,7 +78,6 @@
         grid-template-columns: repeat(2, 1fr);
         column-gap: 2rem;
         padding: 2rem;
-        /* place-items: center; */
     }
 
     .main__section--escuela-it,
@@ -97,6 +93,12 @@
     .main__section--books .section__card,
     .main__section--manuales .section__card {
         width: 40rem;
+    }
+
+    .main__section--escuela-it .card__title,
+    .main__section--books .card__title,
+    .main__section--manuales .card__title {
+        width: 100%;
     }
 
 }
@@ -118,61 +120,51 @@
     }
 }
 
-
 .section__card {
     width: 100%;
-    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
     background-color: #E8DFFD;
-    /* overflow: hidden; */
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-
-/*
-@media(min-width: 480px) {
-    
-    .section__card {
-        height: 30rem;
-    }
+.card__title {
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    background-color: var(--bg-light);
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+@media(min-width: 480px)  {
 
-@media(min-width: 768px) {
-    
-    .section__card {
-        height: 30rem;
+    .card__title {
+        font-size: 1.2rem;
     }
 }
-*/
 
 .card__img {
     width: 100%;
-    /* height: 100%; */
     aspect-ratio: 16/12;
     border-radius: 5px;
-    &:hover {
-        transform: scale(1.02);
-        transition: all 300ms ease-in-out;
-    }
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 300ms ease-in-out;
 }
 
-
-
-
-
-.main__background {
-    background: radial-gradient(circle, rgb(255, 255, 255), rgb(219, 228, 240), rgb(176, 196, 236));
-    box-shadow: 50px 50px 100px rgb(209, 220, 235);
+.card__img:hover {
+    transform: scale(1.02);
 }
 
-.gradiente {
-    /* background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%); */
-    /* background: radial-gradient(125% 125% at 50% 10%, #00000f 40%, #fff 100%); */
-    /* background-color: #ffffff; */
-    background: radial-gradient(circle at top right, rgba(70, 130, 180, 0.5), transparent 70%);
-    background-repeat: no-repeat;
-    /* filter: blur(80px); */
-    /* z-index: -1; */
-
+.github-logo--main {
+    margin-right: 0;
 }
