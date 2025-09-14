@@ -79,23 +79,79 @@ body::-webkit-scrollbar {
 }
 
 
+/*  
+    --------------------------------------
+    -----  Loader Pantalla Completa  -----  
+    --------------------------------------
+*/
+
+.loader__container {
+    position: fixed;
+    inset: 0; /* top: 0; right: 0; bottom: 0; left: 0 */
+    background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 1200ms ease-in-out;
+}
+
+.loader__container.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.spinner {
+    width: 15rem;
+    height: 15rem;
+    border: 10px solid var(--color-primary);
+    border-top: 10px solid cornflowerblue;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loader__logo-jquery {
+    width: 30rem;
+    height: auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/*
+    ------------------------------
+    ----------  Layout  ----------
+    ------------------------------
+*/
+
 .layout {
     width: 100vw;
     min-height: 100dvh;
     overflow-y: auto;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-
     position: absolute;
     overflow-x: hidden;
     inset: 0; /* top: 0; right: 0; bottom: 0; left: 0 */
     z-index: 0;
     background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%);
+    transition: opacity 1200ms ease-in-out; 
+}
 
-
-    
+.layout.fade-in {
+    display: flex;
+    opacity: 1;
 }
 
 .btn__container {

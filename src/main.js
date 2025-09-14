@@ -25,6 +25,36 @@ const cdnJQueryUI = '';
 const localJQueryUI = "/src/libs/jquery-ui/local/jquery-ui-1.14.1-only-draggable.min.js";
 
 
+
+/*  
+    ----------------------------
+    -----  Efecto Loading  -----
+    ----------------------------
+*/
+
+const loader = document.querySelector('#loader');
+const layout = document.querySelector('#layout');
+
+setTimeout(() => {
+    
+    layout.style.display = 'flex'; 
+    
+    requestAnimationFrame(() => {
+        layout.classList.add('fade-in');
+    });
+
+    loader.classList.add('fade-out');
+
+    loader.addEventListener('transitionend', () => {
+        loader.style.display = 'none';
+    }, { once: true });
+
+}, 500);
+
+
+
+
+
 //  -------------------------------------
 //  -----  Ejecutamos las Promesas  -----
 //  -------------------------------------
