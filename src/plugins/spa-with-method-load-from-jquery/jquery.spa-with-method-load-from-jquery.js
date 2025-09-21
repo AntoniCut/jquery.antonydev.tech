@@ -60,7 +60,7 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
 
         /**
          * Plugin principal que gestiona rutas, carga de layouts y navegación SPA.
-         * 
+         * @type {jQuery}
          * @param {Partial<SpaPluginSettings>} options - Configuración personalizada.
          * @returns {jQuery} Retorna el objeto jQuery para encadenar métodos.
          */
@@ -110,6 +110,7 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
             //  ------------------------------------------------------------------------------------
 
             /**
+             * @function init
              * @description Inicializa la aplicación y carga el contenido de la ruta inicial.
              * @returns {void}
              */
@@ -133,6 +134,7 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
             //  --------------------------------------------------------------------
 
             /**
+             * @function draggableComponentsHtml
              * @description Hacemos los menús arrastrables
              * @returns {void}
              */
@@ -523,17 +525,8 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
                 const matchedPath = event.state?.path ? event.state.path.replace(settings.base, '') : window.location.pathname.replace(settings.base, '');
                 const matchedRoute = settings.routes.find(route => route.path === matchedPath);
 
-                if (matchedRoute) {
-
+                if (matchedRoute)
                     loadContent(matchedRoute);
-
-                    // if (matchedRoute.path === '/')
-                    //     $layoutNavbar.load(settings.urlLayoutNavbar);
-
-                }
-
-                // else
-                //     loadInitialContent();
 
             });
 
