@@ -1,7 +1,7 @@
 {
-  "name": "AntonyDevTech SPA",
-  "short_name": "AntonyDevTech",
-  "description": "Aplicación SPA desarrollada con jQuery para AntonyDevTech.",
+  "name": "jquery.antonydev.tech SPA",
+  "short_name": "jquery.antonydev.tech",
+  "description": "Aplicación SPA desarrollada con jQuery para jquery.antonydev.tech.",
   "start_url": "/index.html",
   "scope": "/",
   "display": "standalone",

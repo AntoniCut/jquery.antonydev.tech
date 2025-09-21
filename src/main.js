@@ -7,7 +7,6 @@
 
 
 import { cdnJQuery_4_0_0 } from "/src/libs/jquery/cdn/cdn-jquery-4.0.0.js";
-import { cdnJQuery_3_7_1 } from "/src/libs/jquery/cdn/cdn-jquery-3.7.1.js";
 import { loadJQueryByCdnOLocal } from "/src/libs/jquery/load/load-jquery-by-cdn-local.js";
 
 //import { cdnJQueryUI_1_14_1 } from "/src/libs/jquery-ui/cdn/cdn-jquery-ui-1.14.1.js";
@@ -17,13 +16,39 @@ import { spaWithMethodLoadFromJQueryPlugins } from "/src/plugins/spa-with-method
 import { spaJQueryDesarrollos } from "/src/scripts/spa-jquery-desarrollos.js";
 
 
-//  -----  Registro del Service Worker  -----
+
+/*  
+    -----------------------------------------
+    -----  Registro del Service Worker  -----
+    -----------------------------------------
+*/
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-            .then(() => console.log('Service Worker registrado correctamente'))
-            .catch(err => console.error('Error al registrar SW:', err));
-    });
+    
+    navigator.serviceWorker.register('/service-worker.js')
+        
+        .then(reg => {
+            
+            //  -----  Escuchar cuando hay un SW esperando activarse  -----
+            reg.addEventListener('updatefound', () => {
+                
+                const newSW = reg.installing;
+                
+                newSW.addEventListener('statechange', () => {
+                    
+                    if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+                        
+                        console.log('Nueva versión disponible, recarga para actualizar');
+                        // Opcional: recargar automáticamente
+                        window.location.reload();
+                    }
+
+                });
+
+            });
+
+        })
+        
+        .catch(err => console.error('SW registration failed:', err));
 }
 
 
@@ -34,7 +59,7 @@ if ('serviceWorker' in navigator) {
     ----------------------------
 */
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     const loader = document.querySelector('#loader');
     const layout = document.querySelector('#layout');
 
@@ -44,15 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setTimeout(() => {
-        
+
         layout.style.display = "flex";
-        
+
         requestAnimationFrame(() => {
             layout.classList.add("fade-in");
         });
 
         loader.classList.add("fade-out");
-        
+
         loader.addEventListener("transitionend", () => {
             loader.style.display = "none";
         }, { once: true });
@@ -86,7 +111,7 @@ loadJQueryByCdnOLocal(cdnJQuery, localJQuery)
 
         //  -----  cargamos jQueryUI  -----
         loadJQueryUIByCdnOLocal(cdnJQueryUI, localJQueryUI)
-            
+
             .then($ => {
 
                 if (!$.ui) {
@@ -101,7 +126,7 @@ loadJQueryByCdnOLocal(cdnJQuery, localJQuery)
 
                 //  -----  cargamos el script principal del proyecto  -----
                 spaJQueryDesarrollos($);
-                
+
             })
 
     })

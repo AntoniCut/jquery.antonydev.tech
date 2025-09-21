@@ -29,45 +29,78 @@ const EXCLUDES = [
 ];
 
 
+
 // 🧹  -----  Limpiar carpeta dist  -----
 export function clean() {
-  return deleteAsync(["dist"]);
+
+    return deleteAsync(["dist"]);
+
 }
 
 
 
 //  -----  Minificar JS sin cambiar el nombre  -----
 export function minifyAllJs() {
-    return gulp.src(["**/*.js", ...EXCLUDES], { base: "." })
+
+    return gulp
+        .src(["**/*.js", ...EXCLUDES], { base: "." })
         .pipe(uglify())
         .pipe(gulp.dest("dist"));
+
 }
+
 
 
 //  -----  Minificar CSS sin cambiar el nombre  -----
 export function minifyAllCss() {
-    return gulp.src(["**/*.css", ...EXCLUDES], { base: "." })
+
+    return gulp
+        .src(["**/*.css", ...EXCLUDES], { base: "." })
         .pipe(cleanCSS())
         .pipe(gulp.dest("dist"));
+
 }
+
 
 
 //  -----  Minificar y copiar HTML  -----
 export function minifyHtml() {
-    return gulp.src(["**/*.html", ...EXCLUDES], { base: "." })
+
+    return gulp
+        .src(["**/*.html", ...EXCLUDES], { base: "." })
         .pipe(htmlmin({
             collapseWhitespace: true,
             removeComments: true
         }))
         .pipe(gulp.dest("dist"));
+
 }
+
+
+
+//  -----  Copiar manifest.json  -----
+export function copyManifest() {
+
+    return gulp
+        .src(["manifest.json", ...EXCLUDES], { base: "." })
+        .pipe(gulp.dest("dist"));
+
+}
+
 
 
 //  -----  Build de producción (limpia primero)  -----
 export const build = gulp.series(
     clean,
-    gulp.parallel(minifyAllJs, minifyAllCss, minifyHtml)
+    gulp.parallel(
+        minifyAllJs,
+        minifyAllCss,
+        minifyHtml,
+        copyManifest
+    )
+
 );
+
 
 
 //  -----  Tarea por defecto  -----
