@@ -8,9 +8,24 @@
 */
 
 
+:root::view-transition-old(root),
+:root::view-transition-new(root) {
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+
+/* @view-transition {
+    navigation: auto;
+}
+
+::view-transition-group(*) {
+    animation-duration: 5000ms;
+} */
+
 
 :root {
-    
+
     /* ----- Colores principales ----- */
     --color-primary: #036AAD;
     --color-main-title: #d1dceb;
@@ -21,7 +36,7 @@
     --bg-light: #F7E7C0;
     --bg-dark: #1E293B;
     --bg-dark-footer: #020617;
-                
+
     /*  -----  Background Cuadricula  -----  */
     --bg-grid-light:
         linear-gradient(to right, var(--color-grid) 1px, transparent 1px),
@@ -34,7 +49,7 @@
         radial-gradient(circle 500px at 20% 100%, rgba(139, 92, 246, 0.3), transparent),
         radial-gradient(circle 500px at 100% 80%, rgba(59, 130, 246, 0.3), transparent);
 
-         /*  -----  Background Gradiente Footer  -----  */
+    /*  -----  Background Gradiente Footer  -----  */
     --bg-grid-pattern-footer:
         linear-gradient(to right, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
@@ -42,20 +57,20 @@
 
 
     /*  -----  Background Gradiente Main Section  -----  */
-    --bg-main-section: 
+    --bg-main-section:
         radial-gradient(circle, rgb(255, 255, 255), rgb(219, 228, 240), rgb(176, 196, 236));
-   
-    --bg-grid-size-48x48: 
-        48px 48px, 
-        48px 48px, 
-        100% 100%, 
+
+    --bg-grid-size-48x48:
+        48px 48px,
+        48px 48px,
+        100% 100%,
         100% 100%;
 
-    --bg-grid-size-32x32: 
-        32px 32px, 
-        32px 32px, 
-        100% 100%; 
-        
+    --bg-grid-size-32x32:
+        32px 32px,
+        32px 32px,
+        100% 100%;
+
     --bg-grid-repeat: repeat;
 }
 
@@ -75,7 +90,8 @@ body {
 }
 
 body::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+    display: none;
+    /* Chrome, Safari, Opera */
 }
 
 
@@ -87,7 +103,8 @@ body::-webkit-scrollbar {
 
 .loader__container {
     position: fixed;
-    inset: 0; /* top: 0; right: 0; bottom: 0; left: 0 */
+    inset: 0;
+    /* top: 0; right: 0; bottom: 0; left: 0 */
     background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%);
     z-index: 9999;
     display: flex;
@@ -111,7 +128,7 @@ body::-webkit-scrollbar {
     height: 15rem;
     border: 10px solid var(--color-primary);
     border-top: 10px solid cornflowerblue;
-    border-radius: 50%;
+    border-radius: 100%;
     animation: spin 1s linear infinite;
 }
 
@@ -143,10 +160,11 @@ body::-webkit-scrollbar {
     gap: 2rem;
     position: absolute;
     overflow-x: hidden;
-    inset: 0; /* top: 0; right: 0; bottom: 0; left: 0 */
+    inset: 0;
+    /* top: 0; right: 0; bottom: 0; left: 0 */
     z-index: 0;
     background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%);
-    transition: opacity 1200ms ease-in-out; 
+    transition: opacity 1200ms ease-in-out;
 }
 
 .layout.fade-in {

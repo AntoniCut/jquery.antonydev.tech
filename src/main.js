@@ -7,6 +7,7 @@
 
 
 import { cdnJQuery_4_0_0 } from "/src/libs/jquery/cdn/cdn-jquery-4.0.0.js";
+import { cdnJQuery_3_7_1 } from "/src/libs/jquery/cdn/cdn-jquery-3.7.1.js";
 import { loadJQueryByCdnOLocal } from "/src/libs/jquery/load/load-jquery-by-cdn-local.js";
 
 //import { cdnJQueryUI_1_14_1 } from "/src/libs/jquery-ui/cdn/cdn-jquery-ui-1.14.1.js";
@@ -14,6 +15,16 @@ import { loadJQueryUIByCdnOLocal } from "/src/libs/jquery-ui/load/load-jquery-ui
 
 import { spaWithMethodLoadFromJQueryPlugins } from "/src/plugins/spa-with-method-load-from-jquery/jquery.spa-with-method-load-from-jquery.js";
 import { spaJQueryDesarrollos } from "/src/scripts/spa-jquery-desarrollos.js";
+
+
+//  -----  Registro del Service Worker  -----
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(() => console.log('Service Worker registrado correctamente'))
+            .catch(err => console.error('Error al registrar SW:', err));
+    });
+}
 
 
 

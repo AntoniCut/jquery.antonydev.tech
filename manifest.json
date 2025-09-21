@@ -1,0 +1,23 @@
+{
+  "name": "AntonyDevTech SPA",
+  "short_name": "AntonyDevTech",
+  "description": "Aplicación SPA desarrollada con jQuery para AntonyDevTech.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "/assets/manifest/jquery-logo-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/manifest/jquery-logo-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
