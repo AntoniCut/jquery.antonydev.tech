@@ -126,6 +126,7 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
 
                 //  ----------  Guarda el estado inicial para que el botón "Atrás y adelante" funcione correctamente  ----------
                 history.replaceState({ path: window.location.pathname }, '', window.location.pathname);
+                
             }
 
 

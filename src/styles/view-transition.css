@@ -1,0 +1,38 @@
+/*
+    -----------------------------------------------
+    ----------  /jquery.antonydev.tech/  ----------
+    ----------  /src/styles/  ---------------------
+    ----------  /view-transition.css  -------------
+    -----------------------------------------------
+*/
+
+
+/*
+:root::view-transition-old(root),
+:root::view-transition-new(root) {
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+*/
+
+/*
+::view-transition-old(cursos-logos--udemy) {
+  opacity: 1;
+}
+
+::view-transition-new(cursos-logos--udemy) {
+  opacity: 0;
+  animation: fadeIn 1000ms forwards;
+}
+*/
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-group(*) {
+    animation-duration: 1000ms;
+    animation-timing-function: ease-in-out;
+}
+
+

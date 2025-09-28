@@ -54,7 +54,7 @@
     -----------------------------------------------------------------  
 */
 
-.header__container-iconslogos {
+.header__container-icons-logos {
     margin-bottom: 2rem;
 }
 
@@ -81,7 +81,7 @@
 
 /*
     --------------------------------------------------------------------
-    -----  Contenedor de los Logos y Banners de jQuery y jQuery UI -----
+    -----  Contenedor de los Icons y Logos de jQuery y jQuery UI -----
     --------------------------------------------------------------------
 */
 
@@ -93,6 +93,22 @@
     gap: 2rem;
     padding: 2rem;
 }
+
+
+/*
+.jquery-icon {
+    view-transition-name: jquery-icon;
+}
+
+.jquery-ui-icon {
+    view-transition-name: jquery-ui-icon;
+}
+
+.github-icon {
+    view-transition-name: github-icon;
+}
+*/
+
 
 .jquery__icon-logo,
 .jquery-ui__icon-logo {

@@ -8,22 +8,6 @@
 */
 
 
-:root::view-transition-old(root),
-:root::view-transition-new(root) {
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-}
-
-
-/* @view-transition {
-    navigation: auto;
-}
-
-::view-transition-group(*) {
-    animation-duration: 5000ms;
-} */
-
-
 :root {
 
     /* ----- Colores principales ----- */
