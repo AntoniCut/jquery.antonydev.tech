@@ -94,22 +94,6 @@
     padding: 2rem;
 }
 
-
-/*
-.jquery-icon {
-    view-transition-name: jquery-icon;
-}
-
-.jquery-ui-icon {
-    view-transition-name: jquery-ui-icon;
-}
-
-.github-icon {
-    view-transition-name: github-icon;
-}
-*/
-
-
 .jquery__icon-logo,
 .jquery-ui__icon-logo {
     display: flex;

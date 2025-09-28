@@ -420,7 +420,7 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
                         e.stopPropagation();
 
                         //  -----  Mostrar navbar  -----
-                        $layoutNavbar.stop(true, true).slideToggle();
+                        $layoutNavbar.stop(true, true).slideToggle(1000);
 
                         // Cambiar botones
                         $(this).hide(); // oculto abrir
@@ -433,7 +433,7 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
                         e.stopPropagation();
 
                         //  -----  Ocultar navbar  -----
-                        $layoutNavbar.stop(true, true).slideUp();
+                        $layoutNavbar.stop(true, true).slideUp(1000);
 
                         //  -----  Cambiar botones  -----
                         $(this).hide();                     // oculto cerrar
@@ -442,7 +442,7 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
 
                     //  -----  Clic fuera  -----
                     .on('click.navbar', function () {
-                        $layoutNavbar.stop(true, true).slideUp();
+                        $layoutNavbar.stop(true, true).slideUp(1000);
                         $('.navbar__btn-close').hide();   // oculto cerrar
                         $('.navbar__btn-open').show();    // muestro abrir  
                     });
@@ -477,7 +477,7 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
 
                 //  -----  Ocultamos la lista del menú efecto slideUp antes de cambiar el contenido  -----
                 const $layoutNavbar = $('#layoutNavbar .layout__navbar');
-                $layoutNavbar.slideUp();
+                $layoutNavbar.slideUp(1000);
 
                 //  -----  si hemos clicado en una seccion del menú  -----
                 //  -----  cargamos el contenido de la sección  ----------

@@ -88,7 +88,6 @@ body::-webkit-scrollbar {
 .loader__container {
     position: fixed;
     inset: 0;
-    /* top: 0; right: 0; bottom: 0; left: 0 */
     background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%);
     z-index: 9999;
     display: flex;
@@ -141,11 +140,10 @@ body::-webkit-scrollbar {
     display: none;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    /* gap: 2rem; */
     position: absolute;
     overflow-x: hidden;
     inset: 0;
-    /* top: 0; right: 0; bottom: 0; left: 0 */
     z-index: 0;
     background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%);
     transition: opacity 1200ms ease-in-out;
