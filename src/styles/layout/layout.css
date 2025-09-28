@@ -132,7 +132,7 @@ body::-webkit-scrollbar {
     animation: spin 1s linear infinite;
 }
 
-.loader__logo-jquery {
+.loader__icon-jquery {
     width: 30rem;
     height: auto;
 }

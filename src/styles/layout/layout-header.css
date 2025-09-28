@@ -54,13 +54,13 @@
     -----------------------------------------------------------------  
 */
 
-.header__container-logos-banners {
+.header__container-iconslogos {
     margin-bottom: 2rem;
 }
 
 @media (min-width: 768px) {
 
-    .header__container-logos-banners {
+    .header__container-icons-logos {
         display: grid;
         grid-template-columns: 35rem auto;
         row-gap: 2rem;
@@ -70,7 +70,7 @@
 
 @media (min-width: 1200px) {
 
-    .header__container-logos-banners {
+    .header__container-icons-logos {
         display: grid;
         grid-template-columns: none;
 
@@ -85,8 +85,8 @@
     --------------------------------------------------------------------
 */
 
-.container-logos-banners__jquery,
-.container-logos-banners__jquery-ui {
+.container-icons-logos__jquery,
+.container-icons-logos__jquery-ui {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -94,53 +94,53 @@
     padding: 2rem;
 }
 
-.jquery__logo-banner,
-.jquery-ui__logo-banner {
+.jquery__icon-logo,
+.jquery-ui__icon-logo {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
 }
 
-.jquery-banner,
-.jquery-ui-banner {
+.jquery-logo,
+.jquery-ui-logo {
     width: 12rem;
     height: auto;
     mix-blend-mode: multiply;
     transition: all 300ms ease-in-out;
 }
 
-.jquery-logo,
-.jquery-ui-logo,
-.github-logo {
+.jquery-icon,
+.jquery-ui-icon,
+.github-icon {
     width: 3rem;
     height: 3rem;
     transition: all 300ms ease-in-out;
 }
 
-.github-logo {
+.github-icon {
     margin-right: 3rem;
 }
 
-.jquery-banner:hover,
-.jquery-ui-banner:hover,
 .jquery-logo:hover,
 .jquery-ui-logo:hover,
-.github-logo:hover {
+.jquery-icon:hover,
+.jquery-ui-icon:hover,
+.github-icon:hover {
     transform: scale(1.1);
 }
 
 
 @media (min-width: 768px) {
 
-    .jquery-banner,
-    .jquery-ui-banner {
+    .jquery-logo,
+    .jquery-ui-logo {
         width: 15rem;
     }
 
-    .jquery-logo,
-    .jquery-ui-logo,
-    .github-logo {
+    .jquery-icon,
+    .jquery-ui-icon,
+    .github-icon {
         width: 4rem;
         height: 4rem;
     }
@@ -150,11 +150,11 @@
 
 /*
     --------------------------------------------------------
-    -----  Contenedor de los Logos y Banners de jQuery -----
+    -----  Contenedor de los Logos de cursos de jQuery -----
     --------------------------------------------------------
 */
 
-.container-logos-banners__cursos {
+.container-logos__cursos {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -206,6 +206,7 @@
     width: 8rem;
     height: auto;
 }
+
 
 /*
     ----------------------------------------------
