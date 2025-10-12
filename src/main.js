@@ -13,7 +13,7 @@ import { loadJQueryByCdnOLocal } from "/src/libs/jquery/load/load-jquery-by-cdn-
 import { loadJQueryUIByCdnOLocal } from "/src/libs/jquery-ui/load/load-jquery-ui-by-cdn-local.js";
 
 import { spaWithMethodLoadFromJQueryPlugins } from "/src/plugins/spa-with-method-load-from-jquery/jquery.spa-with-method-load-from-jquery.js";
-import { spaJQueryDesarrollos } from "/src/scripts/spa-jquery-desarrollos.js";
+import { spaJQueryAntonydevTech } from "/src/scripts/spa/spa-jquery-antonydev-tech.js";
 
 
 
@@ -119,9 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* 
-   ==========================================
-    -----  Carga de jQuery y jQuery UI  -----
-   ========================================== 
+   ==============================
+    -----  Carga de jQuery  -----
+   ============================== 
 */
 
 /**
@@ -141,6 +141,13 @@ const cdnJQuery = cdnJQuery_4_0_0;
  */
 const localJQuery = "/src/libs/jquery/local/jquery-4.0.0-beta.min.js";
 
+
+
+/* 
+   =================================
+    -----  Carga de jQuery UI  -----
+   ================================= 
+*/
 
 /**
  * Configuración del CDN de jQuery UI.
@@ -200,7 +207,7 @@ loadJQueryByCdnOLocal(cdnJQuery, localJQuery)
                 spaWithMethodLoadFromJQueryPlugins($);
 
                 //  -----  Ejecuta script principal del proyecto  -----
-                spaJQueryDesarrollos($);
+                spaJQueryAntonydevTech($);
 
                 //  ----- Limpia la consola después de 10 segundos  -----
                 setTimeout(() => console.clear(), 10000);

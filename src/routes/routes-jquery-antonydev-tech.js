@@ -1,16 +1,55 @@
 /*
-    -----------------------------------------------------
-    ----------  /jquery.antonydev.tech/  ----------------
-    ----------  /src/  ----------------------------------
-    ----------  /routes/  -------------------------------
-    ----------  /routes-jquery-desarrollos.js  ----------
-    -----------------------------------------------------
+    --------------------------------------------------------
+    ----------  /jquery.antonydev.tech/  -------------------
+    ----------  /src/routes/  ------------------------------
+    ----------  /routes-jquery-antonydev-tech.js  ----------
+    --------------------------------------------------------
 */
 
 
+/**
+ * @file routes-jquery-antonydev-tech.js
+ 
+ * @description
+ * Define el conjunto de rutas utilizadas en la aplicación SPA
+ * **jQuery.antonydev.tech**, incluyendo los layouts, páginas,
+ * títulos, favicons y scripts asociados a cada sección.
+ *
+ * Este archivo exporta un array de objetos `RouteConfig`,
+ * que son consumidos por el plugin `spaWithMethodLoadFromJQuery`.
+ *
+ * Cada objeto representa una página o vista de la aplicación.
+ *
+ * @module routesJQueryAntonydevTech
+ */
 
-//  -----  Array de objetos con los IDs y las rutas correspondientes  -----
-export const routesJQueryDesarrollos = [
+
+/**
+ * @typedef {Object} RouteConfig
+ * @property {string} id - Identificador único de la ruta (usado en los enlaces `data-id`).
+ * @property {string} path - Ruta relativa del navegador (usada en `history.pushState`).
+ * @property {string} urlLayoutHeader - URL del archivo HTML del layout del encabezado.
+ * @property {string} urlLayoutNavbar - URL del archivo HTML del layout del menú de navegación.
+ * @property {string} urlLayoutMain - URL del archivo HTML principal que se carga dinámicamente.
+ * @property {string} urlLayoutFooter - URL del archivo HTML del pie de página.
+ * @property {string} favicon - Ruta del favicon que se mostrará en la pestaña del navegador.
+ * @property {string} pageTitle - Título del documento (propiedad `document.title`).
+ * @property {string} headerTitle - Texto mostrado en el encabezado principal de la vista.
+ * @property {string} [styles] - Hoja de estilos asociada a la vista (opcional).
+ * @property {string[]} [scripts] - Archivos JavaScript adicionales a cargar (opcional).
+ */
+
+
+/**
+ * Array de objetos `RouteConfig` que definen las rutas de la aplicación
+ * jQuery.antonydev.tech. Cada ruta indica los archivos HTML que se cargarán
+ * dinámicamente en las diferentes secciones del layout (header, navbar,
+ * main y footer).
+ *
+ * @constant
+ * @type {RouteConfig[]}
+ */
+export const routesJQueryAntonydevTech = [
 
     {
         id: 'home',
@@ -22,11 +61,10 @@ export const routesJQueryDesarrollos = [
         pageTitle: 'jQuery Desarrollos by AntonyDev',
         path: '/',
         headerTitle: 'Bienvenido a mis desarrollos con jQuery',
-        styles: '',
+        styles: '/src/styles.css',
         scripts: []
     },
 
-    
     {
         id: 'udemy',
         urlLayoutHeader: '/src/components-layout/udemy/layout-header.html',
@@ -35,8 +73,8 @@ export const routesJQueryDesarrollos = [
         urlLayoutFooter: '/src/components-layout/udemy/layout-footer.html',
         favicon: '/assets/favicon/jquery-favicon.ico',
         pageTitle: 'Mis Cursos jQuery de Udemy',
-        path: '/udemy/',
-        headerTitle: 'Mis cursos de jQuery de Udemy',   
+        path: '/01-udemy/projects-jquery/',
+        headerTitle: 'Mis cursos de jQuery de Udemy',
         styles: '',
         scripts: []
     },
@@ -49,7 +87,7 @@ export const routesJQueryDesarrollos = [
         urlLayoutFooter: '/src/components-layout/youtube/layout-footer.html',
         favicon: '/assets/favicon/jquery-favicon.ico',
         pageTitle: 'Mis Cursos de jQuery de YouTube',
-        path: '/youtube/',
+        path: '/02-youtube/projects-jquery/',
         headerTitle: 'Mis Cursos de jQuery de YouTube',
         styles: '',
         scripts: []
@@ -63,12 +101,11 @@ export const routesJQueryDesarrollos = [
         urlLayoutFooter: '/src/components-layout/desarrolloweb.com/layout-footer.html',
         favicon: '/assets/favicon/jquery-favicon.ico',
         pageTitle: 'Mis Cursos de jQuery de desarrolloweb.com',
-        path: '/desarrolloweb.com/',
+        path: '/03-desarrolloweb.com/projects-jquery/',
         headerTitle: 'Mis Cursos de jQuery de desarrolloweb.com',
         styles: '',
         scripts: []
     },
-    
 
     {
         id: 'escuelaIt',
@@ -78,7 +115,7 @@ export const routesJQueryDesarrollos = [
         urlLayoutFooter: '/src/components-layout/escuela.it/layout-footer.html',
         favicon: '/assets/favicon/jquery-favicon.ico',
         pageTitle: 'Mis Cursos de jQuery de Escuela IT',
-        path: '/escuela.it/',
+        path: '/04-escuela.it/projects-jquery/',
         headerTitle: 'Mis Cursos de jQuery de Escuela IT',
         styles: '',
         scripts: []
@@ -92,7 +129,7 @@ export const routesJQueryDesarrollos = [
         urlLayoutFooter: '/src/components-layout/books/layout-footer.html',
         favicon: '/assets/favicon/jquery-favicon.ico',
         pageTitle: 'Mis Libros de jQuery',
-        path: '/books/',
+        path: '/05-books/projects-jquery/',
         headerTitle: 'Mis Libros de jQuery',
         styles: '',
         scripts: []
@@ -106,10 +143,10 @@ export const routesJQueryDesarrollos = [
         urlLayoutFooter: '/src/components-layout/manuales/layout-footer.html',
         favicon: '/assets/favicon/jquery-favicon.ico',
         pageTitle: 'Mis Manuales de jQuery',
-        path: '/manuales-jquery/',
+        path: '/06-manuales/projects-jquery/',
         headerTitle: 'Mis Manuales de jQuery',
         styles: '',
         scripts: []
     }
-    
+
 ];

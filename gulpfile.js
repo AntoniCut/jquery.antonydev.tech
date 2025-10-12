@@ -8,7 +8,7 @@
 */
 
 import gulp from "gulp";
-import uglify from "gulp-uglify";
+import terser from "gulp-terser";
 import cleanCSS from "gulp-clean-css";
 import htmlmin from "gulp-htmlmin";
 import { deleteAsync } from "del";
@@ -44,7 +44,7 @@ export function minifyAllJs() {
 
     return gulp
         .src(["**/*.js", ...EXCLUDES], { base: "." })
-        .pipe(uglify())
+        .pipe(terser())
         .pipe(gulp.dest("dist"));
 
 }
