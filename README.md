@@ -18,7 +18,7 @@ jquery.antonydev.tech/
 │ ├── 🛣️ routes/ # Configuración y archivos relacionados con rutas o navegación<br>
 │ ├── 💻 scripts/ # Scripts JavaScript adicionales o modulares<br>
 │ ├── 🛠️ services/ # Servicios (por ejemplo, llamadas a APIs o utilidades)<br>
-│ └── 🎨 styles/ # Archivos CSS o preprocesadores para estilos
+│ └── 🎨 styles/ # Archivos CSS o preprocesadores para estilos<br>
 │
 ├── ⚙️ .htaccess # Archivo de configuración para servidores Apache<br>
 ├── 💾 desktop.ini # Archivo de configuración de Windows (generalmente oculto)<br>
