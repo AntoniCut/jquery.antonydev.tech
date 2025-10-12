@@ -81,6 +81,7 @@ if ('serviceWorker' in navigator) {
  *  7. Una vez termina la transición del loader, se oculta (`display: none`).
  */
 
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // ---------- Referencias a los elementos del DOM ----------

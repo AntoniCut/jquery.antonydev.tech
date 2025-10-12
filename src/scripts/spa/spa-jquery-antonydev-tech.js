@@ -81,7 +81,7 @@ export const spaJQueryAntonydevTech = ($) => {
      * @property {string} layoutFooter - Selector CSS del contenedor del pie de página.
      * @property {boolean} draggable - Indica si se habilitan funciones de arrastre dentro de la SPA.
     */
-
+    
     const optionsPluginsSPA = {
         routes: allRoutes,
         base: '',
