@@ -21,7 +21,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
     //  -------------------------------------------------------------------------------------------
     (function ($) {
 
-       
+
         /**
         * @typedef {Object} RouteConfig
         * @property {string} [id] - ID de la ruta.
@@ -95,13 +95,13 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             //  ----------  referencias al HTML  ----------
             //  -------------------------------------------
 
-           
+
             const $layoutHeader = $(settings.layoutHeader);
             const $layoutNavbar = $(settings.layoutNavbar);
             const $layoutMain = $(settings.layoutMain);
             const $layoutFooter = $(settings.layoutFooter);
 
-                        
+
             //  ------------------------------------------------------------------------------------
             //  ----------  función para la Carga del Contenido Inicial de la Aplicación  ----------
             //  ------------------------------------------------------------------------------------
@@ -240,7 +240,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
             const loadTodoContentInHtml = route => {
 
-                
+
                 //  -----  carga el contenido de Layout Header  -----
                 $layoutHeader.load(route.urlLayoutHeader, function (response, status, xhr) {
 
@@ -353,13 +353,35 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
              */
 
             const loadStylesheet = cssFile => {
+                
+                //  -----  Elimina los CSS de páginas anteriores,  -------- 
+                //  -----  excepto layout-header.css (que es global)  -----
+                $('link[data-page-style="true"]').remove();
 
-                let $stylesheet = $(`link[href*="${cssFile}"]`);
-                if ($stylesheet.length === 0) {
-                    $stylesheet = $('<link rel="stylesheet">').appendTo('head');
-                }
-                $stylesheet.attr('href', `${cssFile}?t=${new Date().getTime()}`);
-            }
+                //  -----  Crea el nuevo link  -----
+                $('<link>')
+                    .attr({
+                        rel: 'stylesheet',
+                        href: `${cssFile}?t=${new Date().getTime()}`,
+                        'data-page-style': 'true'
+                    })
+                    .appendTo('head');
+            };
+
+
+
+
+
+            // const loadStylesheet = cssFile => {
+
+
+            //     let $stylesheet = $(`link[href*="${cssFile}"]`);
+
+            //     if ($stylesheet.length === 0) {
+            //         $stylesheet = $('<link rel="stylesheet">').appendTo('head');
+            //     }
+            //     $stylesheet.attr('href', `${cssFile}?t=${new Date().getTime()}`);
+            // }
 
 
             //  ------------------------------------------------------------------
@@ -488,7 +510,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                  * @description dataId - ID del enlace clicado.
                  */
                 const dataId = $(this).data('id');
-                
+
                 //  -----  Buscar la ruta correspondiente al ID  -----
                 const route = settings.routes.find(route => route.id === dataId);
 

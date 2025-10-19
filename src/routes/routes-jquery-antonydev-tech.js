@@ -31,6 +31,8 @@
  * - Array de objetos `RouteConfig` que definen las rutas de la aplicación jQuery.antonydev.tech. 
  * - Cada ruta indica los archivos HTML que se cargarán dinámicamente en las diferentes secciones del layout (header, navbar, main y footer).
  */
+
+
 export const routesJQueryAntonydevTech = [
 
     {
@@ -43,7 +45,7 @@ export const routesJQueryAntonydevTech = [
         pageTitle: 'jQuery Desarrollos by AntonyDev',
         path: '/',
         headerTitle: 'Bienvenido a mis desarrollos con jQuery',
-        styles: '/src/styles.css',
+        styles: '/src/styles/pages/00-home.css',
         scripts: []
     },
 
@@ -57,7 +59,7 @@ export const routesJQueryAntonydevTech = [
         pageTitle: 'Mis Cursos jQuery de Udemy',
         path: '/01-udemy/projects-jquery/',
         headerTitle: 'Mis cursos de jQuery de Udemy',
-        styles: '',
+        styles: '/src/styles/pages/01-udemy.css',
         scripts: []
     },
 
@@ -71,7 +73,7 @@ export const routesJQueryAntonydevTech = [
         pageTitle: 'Mis Cursos de jQuery de YouTube',
         path: '/02-youtube/projects-jquery/',
         headerTitle: 'Mis Cursos de jQuery de YouTube',
-        styles: '',
+        styles: '/src/styles/pages/02-youtube.css',
         scripts: []
     },
 
@@ -85,7 +87,7 @@ export const routesJQueryAntonydevTech = [
         pageTitle: 'Mis Cursos de jQuery de desarrolloweb.com',
         path: '/03-desarrolloweb.com/projects-jquery/',
         headerTitle: 'Mis Cursos de jQuery de desarrolloweb.com',
-        styles: '',
+        styles: '/src/styles/pages/03-desarrolloweb.com.css',
         scripts: []
     },
 
@@ -99,7 +101,7 @@ export const routesJQueryAntonydevTech = [
         pageTitle: 'Mis Cursos de jQuery de Escuela IT',
         path: '/04-escuela.it/projects-jquery/',
         headerTitle: 'Mis Cursos de jQuery de Escuela IT',
-        styles: '',
+        styles: '/src/styles/pages/04-escuela.it.css',
         scripts: []
     },
 
@@ -113,7 +115,7 @@ export const routesJQueryAntonydevTech = [
         pageTitle: 'Mis Libros de jQuery',
         path: '/05-books/projects-jquery/',
         headerTitle: 'Mis Libros de jQuery',
-        styles: '',
+        styles: '/src/styles/pages/05-books-jquery.css',
         scripts: []
     },
 
@@ -127,7 +129,7 @@ export const routesJQueryAntonydevTech = [
         pageTitle: 'Mis Manuales de jQuery',
         path: '/06-manuales/projects-jquery/',
         headerTitle: 'Mis Manuales de jQuery',
-        styles: '',
+        styles: '/src/styles/pages/06-manuales-jquery.css',
         scripts: []
     }
 

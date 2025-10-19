@@ -1,0 +1,39 @@
+/*
+    -----------------------------------------------
+    ----------  /jquery.antonydev.tech/  ----------
+    ----------  /src/styles/pages/  ---------------
+    ----------  /00-home.css  ---------------------
+    -----------------------------------------------
+*/
+
+
+.cursos__logos--udemy {
+    width: 9rem;
+    height: auto;
+}
+
+.cursos__logos--youtube {
+    width: 9rem;
+    height: auto;
+}
+
+.cursos__logos--desarrollowebcom {
+    width: 9rem;
+    height: 5rem;
+    mix-blend-mode: multiply;
+}
+
+.cursos__logos--escuela-it {
+    width: 10rem;
+    height: auto;
+}
+
+.cursos__logos--jquery-books {
+    width: 10rem;
+    height: auto;
+}
+
+.cursos__logos--jquery-manuales {
+    width: 8rem;
+    height: auto;
+}
