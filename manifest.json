@@ -2,7 +2,7 @@
   "name": "jquery.antonydev.tech SPA",
   "short_name": "jquery.antonydev.tech",
   "description": "Aplicación SPA desarrollada con jQuery para jquery.antonydev.tech.",
-  "start_url": "/index.html",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
