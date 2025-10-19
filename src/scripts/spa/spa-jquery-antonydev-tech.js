@@ -8,6 +8,8 @@
 
 
 
+
+
 import { routesJQueryAntonydevTech } from "/src/routes/routes-jquery-antonydev-tech.js";
 
 
@@ -15,6 +17,8 @@ import { routesJQueryAntonydevTech } from "/src/routes/routes-jquery-antonydev-t
  * @function spaJQueryAntonydevTech 
  * @param {typeof window.jQuery} $ - Instancia de jQuery ya cargada en el proyecto.
  *
+ * @description
+ 
  * Inicializa la lógica **SPA** (Single Page Application) para
  * la sección *jQuery.antonydev.tech* del proyecto.
  *
@@ -22,7 +26,6 @@ import { routesJQueryAntonydevTech } from "/src/routes/routes-jquery-antonydev-t
  * layout, y luego invoca el plugin `spaWithMethodLoadFromJQuery`
  * para manejar la navegación dinámica dentro de la aplicación.
  
- * @description
  *  1. Importa las rutas definidas en `routesJQueryAntonydevTech`.
  *  2. Combina las rutas en un array (`allRoutes`).
  *  3. Obtiene una referencia al contenedor principal (`#layout`).
@@ -43,9 +46,10 @@ export const spaJQueryAntonydevTech = ($) => {
 
     //  ----------  Arrays con la informacion del contenido a cargar de las rutas del proyecto ----------
     /**
-     * @constant
-     * @type {Array<Object>}
-     */
+     * @type {RouteConfig[]}
+     * @description
+     * - Array que combina todas las rutas definidas para la aplicación SPA.
+    */
     
     const allRoutes = [
 
@@ -57,9 +61,11 @@ export const spaJQueryAntonydevTech = ($) => {
     //  ----------  referencias al HTML  ----------
 
     /**
-     * Elemento raíz de la aplicación SPA.
-     * @constant
-     * @type {jQuery<HTMLElement>}
+     
+     * @type {JQuery}
+     * @description 
+     * - Elemento raíz de la aplicación SPA.
+     * - Selecciona el contenedor principal de la aplicación SPA utilizando jQuery.
      */
     const $layout = $('#layout');
 
@@ -70,9 +76,8 @@ export const spaJQueryAntonydevTech = ($) => {
      * Objeto de configuración que define cómo debe comportarse
      * el plugin `spaWithMethodLoadFromJQuery`.
      *
-     * @constant
      * @typedef {Object} optionsPluginsSPA
-     *
+     
      * @property {Array<Object>} routes - Conjunto de rutas definidas para la SPA.
      * @property {string} base - Ruta base de la aplicación (se deja vacía si no se usa `history.pushState` o hash routing).
      * @property {string} layoutHeader - Selector CSS del contenedor de la cabecera.

@@ -8,24 +8,9 @@
 
 
 /**
- * @file routes-jquery-antonydev-tech.js
- 
- * @description
- * Define el conjunto de rutas utilizadas en la aplicación SPA
- * **jQuery.antonydev.tech**, incluyendo los layouts, páginas,
- * títulos, favicons y scripts asociados a cada sección.
- *
- * Este archivo exporta un array de objetos `RouteConfig`,
- * que son consumidos por el plugin `spaWithMethodLoadFromJQuery`.
- *
- * Cada objeto representa una página o vista de la aplicación.
- *
- * @module routesJQueryAntonydevTech
- */
-
-
-/**
  * @typedef {Object} RouteConfig
+ * @description
+ * - Objeto que define la configuración de una ruta en la aplicación SPA jQuery.antonydev.tech.
  * @property {string} id - Identificador único de la ruta (usado en los enlaces `data-id`).
  * @property {string} path - Ruta relativa del navegador (usada en `history.pushState`).
  * @property {string} urlLayoutHeader - URL del archivo HTML del layout del encabezado.
@@ -41,13 +26,10 @@
 
 
 /**
- * Array de objetos `RouteConfig` que definen las rutas de la aplicación
- * jQuery.antonydev.tech. Cada ruta indica los archivos HTML que se cargarán
- * dinámicamente en las diferentes secciones del layout (header, navbar,
- * main y footer).
- *
- * @constant
  * @type {RouteConfig[]}
+ * @description
+ * - Array de objetos `RouteConfig` que definen las rutas de la aplicación jQuery.antonydev.tech. 
+ * - Cada ruta indica los archivos HTML que se cargarán dinámicamente en las diferentes secciones del layout (header, navbar, main y footer).
  */
 export const routesJQueryAntonydevTech = [
 

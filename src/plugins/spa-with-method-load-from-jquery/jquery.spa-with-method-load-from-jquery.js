@@ -5,18 +5,15 @@
 */
 
 
-//  ------------------------------------------------------------------------
-//  ----------  Envuelve el plugin en una función de modulos ES6  ----------
-//  ------------------------------------------------------------------------
-
 
 /**
  * @function spaWithMethodLoadFromJQueryPlugins
- * @description Este plugin permite cargar contenido dinámico en una aplicación SPA utilizando jQuery.
- * @param {jQuery} $ - Instancia principal de jQuery.
- */
+ * @description 
+ * - Envuelve el plugin en una función de modulos ES6 para facilitar su importación y uso en otros archivos. 
+ * - Este plugin permite cargar contenido dinámico en una aplicación SPA utilizando jQuery.
+*/
 
-export const spaWithMethodLoadFromJQueryPlugins = ($) => {
+export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
     //  -------------------------------------------------------------------------------------------
@@ -24,7 +21,7 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
     //  -------------------------------------------------------------------------------------------
     (function ($) {
 
-
+       
         /**
         * @typedef {Object} RouteConfig
         * @property {string} [id] - ID de la ruta.
@@ -59,10 +56,13 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
         */
 
         /**
-         * Plugin principal que gestiona rutas, carga de layouts y navegación SPA.
-         * @type {jQuery}
-         * @param {Partial<SpaPluginSettings>} options - Configuración personalizada.
-         * @returns {jQuery} Retorna el objeto jQuery para encadenar métodos.
+         * @function external:"jQuery.fn.spaWithMethodLoadFromJQuery"
+         * @memberof external:"jQuery.fn"
+         * @description 
+         *      Este plugin permite cargar contenido dinámico en una aplicación SPA utilizando jQuery.
+         *      Plugin principal que gestiona rutas, carga de layouts y navegación SPA.
+         * @param {Partial<SpaPluginSettings>} [options={}] - Configuración personalizada.
+         * @returns {jQuery} Retorna el objeto jQuery para permitir el encadenamiento de métodos.
          */
 
         $.fn.spaWithMethodLoadFromJQuery = function (options) {
@@ -72,7 +72,10 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
             //  ----------  Configuración por defecto del plugin  ----------
             //  ------------------------------------------------------------
 
-            /** @type {SpaPluginSettings} */
+            /** 
+             * @type {SpaPluginSettings} 
+             * @description Configuración del plugin SPA.
+             */
 
             const settings = $.extend({
 
@@ -92,19 +95,13 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
             //  ----------  referencias al HTML  ----------
             //  -------------------------------------------
 
-            /** * @type {jQuery<HTMLHeaderElement>} Selector para el header del layout */
+           
             const $layoutHeader = $(settings.layoutHeader);
-
-            /** * @type {jQuery<HTMLNavElement>} Selector para el navbar del layout */
             const $layoutNavbar = $(settings.layoutNavbar);
-
-            /** * @type {jQuery<HTMLMainElement>} Selector para el contenido principal del layout */
             const $layoutMain = $(settings.layoutMain);
-
-            /** * @type {jQuery<HTMLFooterElement>} Selector para el footer del layout */
             const $layoutFooter = $(settings.layoutFooter);
 
-
+                        
             //  ------------------------------------------------------------------------------------
             //  ----------  función para la Carga del Contenido Inicial de la Aplicación  ----------
             //  ------------------------------------------------------------------------------------
@@ -116,8 +113,10 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
              */
 
             const init = () => {
-                // Elimina barra final del pathname
+
+                //  -----  Elimina barra final del pathname  -----
                 const normalizedPath = window.location.pathname.replace(/\/$/, '').replace(settings.base, '');
+
                 const initialRoute = settings.routes.find(route =>
                     route.path.replace(/\/$/, '') === normalizedPath
                 );
@@ -168,9 +167,10 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
 
             /**
              * @function loadContent
-             * @description Maneja la carga de contenido para una ruta específica utilizando la API ViewTransition si está disponible,
-             *              o un método clásico si no lo está. 
-             *              Determina el método de transición y delega la carga del contenido.
+             * @description 
+             *   Maneja la carga de contenido para una ruta específica utilizando la API ViewTransition si está disponible,
+             *   o un método clásico si no lo está. 
+             *   Determina el método de transición y delega la carga del contenido.
              * @param {RouteConfig} route - Objeto de configuración de la ruta a cargar.
              * @returns {void}
              */
@@ -240,7 +240,7 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
 
             const loadTodoContentInHtml = route => {
 
-
+                
                 //  -----  carga el contenido de Layout Header  -----
                 $layoutHeader.load(route.urlLayoutHeader, function (response, status, xhr) {
 
@@ -325,7 +325,7 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
             /**
              * @function updateFavicon
              * @description Actualiza el favicon de la página.
-             * @param {string} favicon - La URL del nuevo favicon.
+             * @param {string} $favicon - La URL del nuevo favicon.
              * @returns {void}
              */
 
@@ -483,7 +483,13 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
                 event.preventDefault();
 
                 //  -----  Obtener el ID del enlace clicado  -----
+                /**
+                 * @type {string}
+                 * @description dataId - ID del enlace clicado.
+                 */
                 const dataId = $(this).data('id');
+                
+                //  -----  Buscar la ruta correspondiente al ID  -----
                 const route = settings.routes.find(route => route.id === dataId);
 
                 //  -----  Ocultamos la lista del menú efecto slideUp antes de cambiar el contenido  -----
@@ -518,41 +524,34 @@ export const spaWithMethodLoadFromJQueryPlugins = ($) => {
              *    - Ejecuta `loadInitialContent()` para mostrar el contenido por defecto.
              * 
              * @param {PopStateEvent} event - Evento del historial del navegador.
-             * 
-             * @example
-             * // Caso: el usuario pulsa atrás en el navegador
-             * window.dispatchEvent(new PopStateEvent("popstate", { state: { path: "/about" } }));
-             * // -> Buscará la ruta "/about" en settings.routes y cargará su contenido.
              */
 
             window.addEventListener('popstate', function (event) {
+
+
+                /**
+                 * @type {string} 
+                 * @description normalizedPath - Ruta normalizada sin el prefijo `settings.base` y sin barra final.
+                 */
                 const normalizedPath = (event.state?.path || window.location.pathname)
                     .replace(settings.base, '')
                     .replace(/\/$/, '');
 
+                /**
+                 * @type {RouteConfig|undefined} 
+                 * @description Busca en las rutas configuradas la que coincide con `normalizedPath`.
+                 */
                 const matchedRoute = settings.routes.find(route =>
                     route.path.replace(/\/$/, '') === normalizedPath
                 );
 
-                if (matchedRoute) loadContent(matchedRoute);
+
+                if (matchedRoute)
+                    loadContent(matchedRoute);
+
             });
 
-            //window.addEventListener('popstate', function (event) {
 
-                //  -----  Usar `event.state.path` si está disponible, si no, tomar la URL actual  -----
-
-                /**
-                 * @constant {string} matchedPath - Ruta actual sin el prefijo `settings.base`.
-                 * @constant {Route|undefined} matchedRoute - Objeto de ruta encontrado en `settings.routes`. 
-                 */
-
-                //const matchedPath = event.state?.path ? event.state.path.replace(settings.base, '') : window.location.pathname.replace(settings.base, '');
-                //const matchedRoute = settings.routes.find(route => route.path === matchedPath);
-
-                //if (matchedRoute)
-                    //loadContent(matchedRoute);
-
-            //});
 
 
             //  ------------------------------------------------
