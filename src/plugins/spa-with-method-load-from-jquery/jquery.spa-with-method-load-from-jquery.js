@@ -4,14 +4,15 @@
     --------------------------------------------------------------------
 */
 
+//@ts-nocheck
+
 
 
 /**
- * @function spaWithMethodLoadFromJQueryPlugins
- * @description 
- * - Envuelve el plugin en una función de modulos ES6 para facilitar su importación y uso en otros archivos. 
+ * - Envuelve el plugin en una función de modulos ES6 para facilitar su importación y uso en otros archivos.  
  * - Este plugin permite cargar contenido dinámico en una aplicación SPA utilizando jQuery.
-*/
+ * @function spaWithMethodLoadFromJQueryPlugins
+ */
 
 export const spaWithMethodLoadFromJQueryPlugins = () => {
 
@@ -19,10 +20,12 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
     //  -------------------------------------------------------------------------------------------
     //  ----------  Encapsulación del plugin por si lo implementamos fuera de un modulo  ----------
     //  -------------------------------------------------------------------------------------------
+
+    
     (function ($) {
 
 
-        /**
+        /** - Configuración de las rutas de la aplicación SPA.
         * @typedef {Object} RouteConfig
         * @property {string} [id] - ID de la ruta.
         * @property {string} path - Ruta relativa.
@@ -72,9 +75,8 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             //  ----------  Configuración por defecto del plugin  ----------
             //  ------------------------------------------------------------
 
-            /** 
+            /** - Configuracion del plugin SPA
              * @type {SpaPluginSettings} 
-             * @description Configuración del plugin SPA.
              */
 
             const settings = $.extend({
@@ -96,20 +98,32 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             //  -------------------------------------------
 
 
+            /**  - Referencia al contenedor del header
+             * @type {JQuery<HTMLDivElement>}  
+             */
             const $layoutHeader = $(settings.layoutHeader);
+
+            /**  - Referencia al contenedor del navbar 
+             * @type {JQuery<HTMLDivElement>} 
+             */
             const $layoutNavbar = $(settings.layoutNavbar);
+            
+            /**  -  Referencia al contenedor del main 
+             * @type {JQuery<HTMLDivElement>} */
             const $layoutMain = $(settings.layoutMain);
+
+            /** - Referencia al contenedor del footer
+             * @type {JQuery<HTMLDivElement>} 
+             */
             const $layoutFooter = $(settings.layoutFooter);
 
-
+            
             //  ------------------------------------------------------------------------------------
             //  ----------  función para la Carga del Contenido Inicial de la Aplicación  ----------
             //  ------------------------------------------------------------------------------------
 
-            /**
+            /** - Inicializa la aplicación y carga el contenido de la ruta inicial.
              * @function init
-             * @description Inicializa la aplicación y carga el contenido de la ruta inicial.
-             * @returns {void}
              */
 
             const init = () => {
@@ -126,31 +140,15 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 history.replaceState({ path: window.location.pathname }, '', window.location.pathname);
             };
 
-            // const init = () => {
-
-            //     const initialPath = window.location.pathname.replace(settings.base, '');
-            //     const initialRoute = settings.routes.find(route => route.path === initialPath);
-
-            //     if (initialRoute)
-            //         loadContent(initialRoute);
-
-
-            //     //  ----------  Guarda el estado inicial para que el botón "Atrás y adelante" funcione correctamente  ----------
-            //     history.replaceState({ path: window.location.pathname }, '', window.location.pathname);
-
-            // }
-
+            
 
             //  --------------------------------------------------------------------
             //  ----------  función para mover componentes por la página  ----------
             //  --------------------------------------------------------------------
 
-            /**
+            /** - mover componentes por la página
              * @function draggableComponentsHtml
-             * @description Hacemos los menús arrastrables
-             * @returns {void}
              */
-
             const draggableComponentsHtml = () => {
 
                 //  ----------  Hacemos los menús arrastrables  ----------
@@ -166,13 +164,11 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             //  ------------------------------------------------------------------
 
             /**
+             * - Maneja la carga de contenido para una ruta específica utilizando la API ViewTransition si está disponible,
+             * o un método clásico si no lo está. 
+             * - Determina el método de transición y delega la carga del contenido. 
              * @function loadContent
-             * @description 
-             *   Maneja la carga de contenido para una ruta específica utilizando la API ViewTransition si está disponible,
-             *   o un método clásico si no lo está. 
-             *   Determina el método de transición y delega la carga del contenido.
              * @param {RouteConfig} route - Objeto de configuración de la ruta a cargar.
-             * @returns {void}
              */
 
             const loadContent = route => {
@@ -186,6 +182,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             }
 
 
+
             //  -------------------------------------------------------------------------------------
             //  ----------  Función para manejar la carga de contenido con viewtransition  ----------
             //  -------------------------------------------------------------------------------------
@@ -196,7 +193,6 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
              * @param {RouteConfig} route - Objeto de configuración de la ruta a cargar.
              * @returns {void}
              */
-
 
             const loadContentWithViewTransition = route => {
 
@@ -325,12 +321,16 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             /**
              * @function updateFavicon
              * @description Actualiza el favicon de la página.
-             * @param {string} $favicon - La URL del nuevo favicon.
+             * @param {string} favicon - La URL del nuevo favicon.
              * @returns {void}
              */
 
             const updateFavicon = favicon => {
 
+
+                /**
+                 * @type {JQuery<HTMLLinkElement>}  Selecciona el elemento link del favicon.
+                 */
                 let $favicon = $('link[rel~="icon"]');
 
                 if ($favicon.length === 0)
@@ -339,6 +339,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 $favicon.attr('href', `${favicon}?t=${new Date().getTime()}`);
 
             }
+
 
 
             //  ------------------------------------------------------------------
@@ -356,6 +357,8 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 
                 //  -----  Elimina los CSS de páginas anteriores,  -------- 
                 //  -----  excepto layout-header.css (que es global)  -----
+
+                
                 $('link[data-page-style="true"]').remove();
 
                 //  -----  Crea el nuevo link  -----
@@ -366,22 +369,8 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                         'data-page-style': 'true'
                     })
                     .appendTo('head');
-            };
+           };
 
-
-
-
-
-            // const loadStylesheet = cssFile => {
-
-
-            //     let $stylesheet = $(`link[href*="${cssFile}"]`);
-
-            //     if ($stylesheet.length === 0) {
-            //         $stylesheet = $('<link rel="stylesheet">').appendTo('head');
-            //     }
-            //     $stylesheet.attr('href', `${cssFile}?t=${new Date().getTime()}`);
-            // }
 
 
             //  ------------------------------------------------------------------
@@ -572,7 +561,6 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                     loadContent(matchedRoute);
 
             });
-
 
 
 

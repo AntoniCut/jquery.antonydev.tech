@@ -7,7 +7,7 @@
 */
 
 
-
+//@ts-nocheck
 
 
 import { routesJQueryAntonydevTech } from "/src/routes/routes-jquery-antonydev-tech.js";
@@ -15,8 +15,7 @@ import { routesJQueryAntonydevTech } from "/src/routes/routes-jquery-antonydev-t
 
 /**
  * @function spaJQueryAntonydevTech 
- * @param {typeof window.jQuery} $ - Instancia de jQuery ya cargada en el proyecto.
- *
+ 
  * @description
  
  * Inicializa la lógica **SPA** (Single Page Application) para
@@ -36,7 +35,7 @@ import { routesJQueryAntonydevTech } from "/src/routes/routes-jquery-antonydev-t
  */
 
 
-export const spaJQueryAntonydevTech = ($) => {
+export const spaJQueryAntonydevTech = () => {
 
 
     //  ----------  Documento Cargado  ----------
@@ -45,11 +44,12 @@ export const spaJQueryAntonydevTech = ($) => {
 
 
     //  ----------  Arrays con la informacion del contenido a cargar de las rutas del proyecto ----------
+
+       
     /**
+     * -----  Array que combina todas las rutas definidas para la aplicación SPA  -----
      * @type {RouteConfig[]}
-     * @description
-     * - Array que combina todas las rutas definidas para la aplicación SPA.
-    */
+     */
     
     const allRoutes = [
 
@@ -61,11 +61,10 @@ export const spaJQueryAntonydevTech = ($) => {
     //  ----------  referencias al HTML  ----------
 
     /**
+     * -  Elemento raíz de la aplicación SPA.
+     * -  Selecciona el contenedor principal de la aplicación SPA utilizando jQuery.
+     * @type {JQuery<HTMLDivElement>}
      
-     * @type {JQuery}
-     * @description 
-     * - Elemento raíz de la aplicación SPA.
-     * - Selecciona el contenedor principal de la aplicación SPA utilizando jQuery.
      */
     const $layout = $('#layout');
 
@@ -87,6 +86,9 @@ export const spaJQueryAntonydevTech = ($) => {
      * @property {boolean} draggable - Indica si se habilitan funciones de arrastre dentro de la SPA.
     */
     
+    /**
+     * @type {optionsPluginsSPA}
+     */
     const optionsPluginsSPA = {
         routes: allRoutes,
         base: '',

@@ -3,39 +3,23 @@
 //  -------------------------------------------------------
 
 
+
+
+//@ts-ignore
 import { loadJQueryUIByCdn } from '/src/libs/jquery-ui/load/load-jquery-ui-by-cdn.js';
+
+//@ts-ignore
 import { loadJQueryUIByLocal } from '/src/libs/jquery-ui/load/load-jquery-ui-by-local.js';
 
 
 
-/**
- * Carga la librería **jQuery UI** desde un CDN si está disponible,
- * o desde una ruta local como fallback.
- *
- * Devuelve una **Promesa** que se resuelve con el objeto `window.jQuery`
- * una vez que jQuery UI ha sido cargado correctamente (requiere que jQuery
- * ya esté previamente disponible en la página).
- *
- * @function loadJQueryUIByCdnOLocal
- *
- * @param {Object|null} [cdnJQueryUI=null] - Objeto de configuración del CDN de jQuery UI.
- * @param {string} cdnJQueryUI.srcCdn - URL del archivo jQuery UI en el CDN.
- * @param {string} [cdnJQueryUI.integrity] - Hash de integridad para seguridad (opcional).
- * @param {string} [cdnJQueryUI.crossOrigin] - Política CORS para la carga del script (opcional).
- * @param {string} [cdnJQueryUI.referrerPolicy] - Política de referer (opcional).
- *
- * @param {string} localJQueryUI - Ruta local del archivo jQuery UI que se usará
- *                                 si el CDN no está definido o falla la carga.
- *
- * @returns {Promise<typeof window.jQuery>}
- *  Promesa que se resuelve con `window.jQuery` (ya con jQuery UI cargado),
- *  o se rechaza con un error si falla tanto el CDN como la carga local.
- *
- * @description
- *  1. Muestra en consola el inicio de la carga de jQuery UI.
- *  2. Si no se proporciona un objeto de CDN válido, carga directamente desde local.
- *  3. Si hay un CDN definido, intenta cargarlo con fallback a la versión local.
+/** - Carga jQuery UI desde un CDN con fallback a local si falla.
+ * @import  {CDNJQueryUI} from '../../../types/cdn-types.js';
+ * @param {CDNJQueryUI|null} cdnJQueryUI 
+ * @param {string} localJQueryUI
+ * @returns {Promise<JQueryStatic>}
  */
+
 
 //  -----  Función para cargar jQuery UI desde CDN o local  -----
 export const loadJQueryUIByCdnOLocal = (cdnJQueryUI = null, localJQueryUI) => {

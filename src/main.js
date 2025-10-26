@@ -6,22 +6,33 @@
 */
 
 
+
+//@ts-ignore
 import { cdnJQuery_4_0_0 } from "/src/libs/jquery/cdn/cdn-jquery-4.0.0.js";
+
+//@ts-ignore
 import { loadJQueryByCdnOLocal } from "/src/libs/jquery/load/load-jquery-by-cdn-local.js";
 
-//import { cdnJQueryUI_1_14_1 } from "/src/libs/jquery-ui/cdn/cdn-jquery-ui-1.14.1.js";
+//@ts-ignore
+import { cdnJQueryUI_1_14_1 } from "/src/libs/jquery-ui/cdn/cdn-jquery-ui-1.14.1.js";
+
+//@ts-ignore
 import { loadJQueryUIByCdnOLocal } from "/src/libs/jquery-ui/load/load-jquery-ui-by-cdn-local.js";
 
+//@ts-ignore
 import { spaWithMethodLoadFromJQueryPlugins } from "/src/plugins/spa-with-method-load-from-jquery/jquery.spa-with-method-load-from-jquery.js";
+
+//@ts-ignore
 import { spaJQueryAntonydevTech } from "/src/scripts/spa/spa-jquery-antonydev-tech.js";
 
 
 
 /* 
-    ==============================================
+    ----------------------------------------------
     -----  Registro del Service Worker (SW)  -----
-    ==============================================
+    ----------------------------------------------
 */
+
 
 /**
  * @description Registra el Service Worker y detecta nuevas versiones.
@@ -31,12 +42,18 @@ import { spaJQueryAntonydevTech } from "/src/scripts/spa/spa-jquery-antonydev-te
 if ('serviceWorker' in navigator) {
 
     navigator.serviceWorker.register('/service-worker.js')
+
         .then(reg => {
 
             // Detecta cuando un nuevo SW está instalándose
             reg.addEventListener('updatefound', () => {
 
                 const newSW = reg.installing;
+
+                if (!newSW) {
+                    console.error('No se encontró el nuevo Service Worker.');
+                    return;
+                }
 
                 newSW.addEventListener('statechange', () => {
 
@@ -58,34 +75,25 @@ if ('serviceWorker' in navigator) {
 
 
 /* 
-    =========================================
+    -----------------------------------------
     -----  Efecto Loading de la Página  -----
-    ========================================= 
+    -----------------------------------------
 */
-
-/**
- * @param {Event} event - Evento DOMContentLoaded
- * Maneja el efecto de carga inicial de la aplicación.
- *
- * Al cargar el DOM, muestra un *loader* y luego hace la transición
- * para mostrar el contenido principal (`#layout`) con un efecto de
- * fade-in, mientras oculta el *loader* con un fade-out.
- *
- * @description
- *  1. Selecciona los elementos `#loader` y `#layout` del DOM.
- *  2. Verifica que ambos elementos existan; si no, muestra un error.
- *  3. Espera 1 segundo antes de iniciar la transición (simula tiempo de carga).
- *  4. Muestra el `layout` cambiando su `display` a `flex`.
- *  5. Aplica la clase `fade-in` al layout para animación CSS.
- *  6. Aplica la clase `fade-out` al loader para animación CSS.
- *  7. Una vez termina la transición del loader, se oculta (`display: none`).
- */
 
 
 document.addEventListener('DOMContentLoaded', () => {
 
     // ---------- Referencias a los elementos del DOM ----------
+
+    /** - Elemento de Carga 
+     * @type {HTMLDivElement|null}
+     */
     const loader = document.querySelector('#loader');   // Elemento de carga
+
+    /**
+     * - Elemento de Layout Principal
+     * @type {HTMLDivElement|null}
+     */
     const layout = document.querySelector('#layout');   // Contenedor principal
 
     // ---------- Verificar existencia de elementos ----------
@@ -97,47 +105,43 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------- Retrasar la animación para simular carga ----------
     setTimeout(() => {
 
-        // Mostrar layout
+        //  -----  Mostrar layout  -----
         layout.style.display = "flex";
 
-        // Aplicar transición de fade-in al layout
+        //  -----  Aplicar transición de fade-in al layout  -----
         requestAnimationFrame(() => {
             layout.classList.add("fade-in");
         });
 
-        // Aplicar fade-out al loader
+        //  -----  Aplicar fade-out al loader  -----
         loader.classList.add("fade-out");
 
-        // Una vez que termina la transición del loader, ocultarlo
+        //  -----  Una vez que termina la transición del loader, ocultarlo  -----
         loader.addEventListener("transitionend", () => {
             loader.style.display = "none";
         }, { once: true });
 
-    }, 1000); // Tiempo de espera en milisegundos
+    }, 1000);
 
 });
 
 
 
 /* 
-   ==============================
+   ------------------------------
     -----  Carga de jQuery  -----
-   ============================== 
+   ------------------------------
 */
 
 /**
- * Configuración del CDN de jQuery.
- * Se importa desde /src/libs/jquery/cdn/cdn-jquery-4.0.0.js
- * @type {Object}
- * @property {string} srcCdn - URL del archivo jQuery en el CDN.
- * @property {string} [integrity] - Hash de integridad para seguridad (opcional).
- * @property {string} [crossOrigin] - Política CORS (opcional).
- * @property {string} [referrerPolicy] - Política de referer (opcional).
- */
+ * - Configuración del CDN de jQuery.
+ * @import  {CDNJQuery} from './types/cdn-types.js';
+ * @type {CDNJQuery}
+  */
 const cdnJQuery = cdnJQuery_4_0_0;
 
 /**
- * Ruta del archivo jQuery local a usar como fallback si el CDN falla.
+ * - Ruta del archivo jQuery local a usar como fallback si el CDN falla.
  * @type {string}
  */
 const localJQuery = "/src/libs/jquery/local/jquery-4.0.0-beta.min.js";
@@ -145,76 +149,81 @@ const localJQuery = "/src/libs/jquery/local/jquery-4.0.0-beta.min.js";
 
 
 /* 
-   =================================
+   ---------------------------------
     -----  Carga de jQuery UI  -----
-   ================================= 
+   ---------------------------------
 */
 
+
 /**
- * Configuración del CDN de jQuery UI.
- * Se importa desde /src/libs/jquery-ui/cdn/cdn-jquery-ui-1.14.1.js
- * @type {Object}
- * @property {string} srcCdn - URL del archivo jQuery UI en el CDN.
- * @property {string} [integrity] - Hash de integridad para seguridad (opcional).
- * @property {string} [crossOrigin] - Política CORS (opcional).
- * @property {string} [referrerPolicy] - Política de referer (opcional).
+ * - Configuración del CDN de jQuery UI.
+ * @import  {CDNJQueryUI} from './types/cdn-types.js';
+ * @type {CDNJQueryUI}
  */
-const cdnJQueryUI = '';
-//const cdnJQueryUI = '/src/libs/jquery-ui/cdn/cdn-jquery-ui-1.14.1.js';
-
+const cdnJQueryUI = cdnJQueryUI_1_14_1;
 
 /**
- * Ruta del archivo jQuery UI local a usar como fallback si el CDN falla.
+ * - Ruta del archivo jQuery UI local a usar como fallback si el CDN falla.
  * @type {string}
  */
-const localJQueryUI = "/src/libs/jquery-ui/local/jquery-ui-1.14.1-only-draggable.min.js";
+const localJQueryUI = "/src/libs/jquery-ui/local/jquery-ui-1.14.1.min.js";
 
 
 
 /* 
-    ===========================================================
+    -----------------------------------------------------------
     -----  Ejecución de Promesas para Carga de Librerías  -----
-    =========================================================== 
+    -----------------------------------------------------------
 */
 
 console.log('\n');
 console.warn("-----  Iniciando carga de jQuery y jQueryUI...  -----");
 console.log('\n');
 
-/**
- * Carga jQuery desde CDN o fallback local.
- * Luego carga jQuery UI desde CDN o fallback local.
- * Después ejecuta los plugins principales del proyecto.
- */
+
+//  -----  Carga jQuery  -----
 loadJQueryByCdnOLocal(cdnJQuery, localJQuery)
 
-    .then($ => {
+    .then(
 
-        console.warn("jQuery cargado correctamente - Versión:", $.fn.jquery);
+        /**  @param {JQueryStatic} $ - Instancia de jQuery  */
 
-        //  -----  Carga jQuery UI  -----
-        return loadJQueryUIByCdnOLocal(cdnJQueryUI, localJQueryUI)
+        ($) => {
 
-            .then($ => {
+            console.warn("jQuery cargado correctamente - Versión:", $.fn.jquery);
 
-                if (!$.ui) {
-                    console.log('\n');
-                    throw new Error("jQuery UI no se cargó correctamente.");
-                }
+            //  -----  Carga jQuery UI  -----
+            return loadJQueryUIByCdnOLocal(cdnJQueryUI, localJQueryUI)
 
-                console.warn("jQuery UI cargado correctamente - Versión:", $.ui.version);
+                .then(
+                    
+                    /**  @param {JQueryStatic} $ - Instancia de jQuery  */
 
-                //  -----  Ejecuta plugin que carga el contenido dinámico  -----
-                spaWithMethodLoadFromJQueryPlugins($);
+                    ($) => {
 
-                //  -----  Ejecuta script principal del proyecto  -----
-                spaJQueryAntonydevTech($);
+                        
+                        if (!$.ui) {
+                            console.log('\n');
+                            throw new Error("jQuery UI no se cargó correctamente.");
+                        }
 
-                //  ----- Limpia la consola después de 10 segundos  -----
-                setTimeout(() => console.clear(), 10000);
+                        console.warn("jQuery UI cargado correctamente - Versión:", $.ui.version);
 
-            });
+                        //  -----  Ejecuta plugin que carga el contenido dinámico  -----
+                        spaWithMethodLoadFromJQueryPlugins();
 
-    })
+                        //  -----  Ejecuta script principal del proyecto  -----
+                        spaJQueryAntonydevTech();
 
-    .catch(err => console.error("Error al cargar jQuery o jQuery UI:", err));
+                        //  ----- Limpia la consola después de 10 segundos  -----
+                        setTimeout(() => console.clear(), 10000);
+
+                });
+
+        })
+
+
+    .catch(
+
+        /** @param {Error} err */
+        err => console.error("Error al cargar jQuery o jQuery UI:", err));

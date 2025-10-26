@@ -26,13 +26,10 @@
 
 
 /**
- * @type {RouteConfig[]}
- * @description
  * - Array de objetos `RouteConfig` que definen las rutas de la aplicación jQuery.antonydev.tech. 
  * - Cada ruta indica los archivos HTML que se cargarán dinámicamente en las diferentes secciones del layout (header, navbar, main y footer).
+ * @type {RouteConfig[]}
  */
-
-
 export const routesJQueryAntonydevTech = [
 
     {
